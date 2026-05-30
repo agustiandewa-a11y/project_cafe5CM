@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5Cm Cafe</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <h2>Cafe 5CM</h2>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#Tentang">Tentang</a>
+    <a href="#Visi">Visi & Misi</a>
+    <a href="#kontak">Kontak</a>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <h1>5Cm Coffee Experience</h1>
+  <p>Segar, Santai, Nikmat</p>
+  <button class="btn" onclick="scrollToMenu(document.getElementById('menu'))">Lihat Menu</button>
+</section>
+
+
+<!-- Menu Section -->
+<section id="menu">
+  <h2>Menu 5Cm</h2>
+  <div class="menu-grid">
+    <div class="card">
+      <img src="/Aset/minuman2.jpg">
+      <div class="card-content">
+        <h3>Salted Caramel</h3>
+        <p>Rp 25.000</p>
+        <button class="btn" onclick="addToCart('Salted Caramel')">+</button>
+        <button class="btn" onclick="decreaseItem('Salted Caramel')">-</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/Aset/minuman1.jpg">
+      <div class="card-content">
+        <h3>Coffee 5cm</h3>
+        <p>Rp 15.000</p>
+        <button class="btn" onclick="addToCart('Coffee 5cm')">+</button>
+        <button class="btn" onclick="decreaseItem('Coffee 5cm')">-</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/Aset/minuman3.png">
+      <div class="card-content">
+        <h3>Matcha Latte</h3>
+        <p>Rp 28.000</p>
+        <button class="btn" onclick="addToCart('Matcha Latte')">+</button>
+        <button class="btn" onclick="decreaseItem('Matcha Latte')">-</button>
+      </div>
+  </div>
+  
+    <div class="card">
+        <img src="/Aset/lasagna.jpeg">
+        <div class="card-content">
+            <h3>5cm Lasagna</h3>
+            <p>Rp 35.000</p>
+            <button class="btn" onclick="addToCart('5cm Lasagna')">+</button>
+            <button class="btn" onclick="decreaseItem('5cm Lasagna')">-</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="/Aset/aglio.webp">
+        <div class="card-content">
+            <h3>Aglio O Elio</h3>
+            <p>Rp 30.000</p>
+            <button class="btn" onclick="addToCart('Aglio O Elio')">+</button>
+            <button class="btn" onclick="decreaseItem('Aglio O Elio')">-</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="/Aset/nasi_goreng.jpeg">
+        <div class="card-content">
+            <h3>Nasi Goreng Kampung</h3>
+            <p>Rp 22.000</p>
+            <button class="btn" onclick="addToCart('Nasi Goreng Kampung')">+</button>
+            <button class="btn" onclick="decreaseItem('Nasi Goreng Kampung')">-</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- About Section -->
+<section class="tentang" id="Tentang">
+  <div class="container">
+    <div class="section-tentang">
+    <h3>Tentang <span>5cm</span></h3>
+        <p>Kami menyajikan berbagai pilihan kopi berkualitas, mulai dari espresso hingga kopi susu kekinian, yang diracik dengan penuh perhatian. Tidak hanya itu, kami juga menyediakan minuman non-kopi bagi kamu yang ingin menikmati suasana tanpa kafein.</p>
+          <br>    
+            <p>Bagi kami, yang terpenting bukan hanya rasa kopi, tetapi juga suasana yang hangat, pelayanan yang ramah, dan momen yang tercipta di dalamnya.</p>
+            <br>
+            <p>Karena di sini, setiap cerita dimulai dari secangkir kopi.</p>
+          </div>
+          <div class="galerry">
+            <img src="Aset/image1.jpeg">
+            <img src="Aset/image2.jpeg">
+            <img src="Aset/image3.jpeg">
+          </div>
+        </div>
+      </section>
+
+
+<!-- visi & misi -->
+      <section class="visi-misi" id="Visi">
+        <div class="overlay">
+        <div class="box-visi">
+          <h4>Visi</h4>
+          <p>Menjadi coffee shop pilihan yang menghadirkan pengalaman ngopi berkualitas dengan cita rasa unik, 
+            suasana nyaman, dan pelayanan terbaik bagi setiap pelanggan.</p>
+          </div>
+
+        <div class="box-misi">
+          <h4>Misi</h4>
+            <p>- Berkomitmen untuk menyajikan kopi dan makanan dengan kualitas terbaik.</p>
+            <br>
+            <p>- Menjadi pemimpin dalam industri kopi dan kuliner di Indonesia.</p>
+        </div>
+      </div>
+    </section>
+
+
+<!-- kontak Section -->
+<section id="kontak" class="kontak-modern">
+  <div class="kontak-header">
+    <h2>KONTAK</h2>
+    <p>Punya pertanyaan, kritik, atau ingin reservasi? Yuk mampir atau hubungi kami!</p>
+  </div>
+
+  <div class="kontak-grid-modern">
+    <div class="kontak-info">
+      
+      <div class="info-card">
+        <span class="icon">📍</span>
+        <div>
+          <h3>Lokasi Kafe</h3>
+          <p>5CM Coffee & Eatery (Cabang Pancasila)<br>Kota Singkawang, Kalimantan Barat</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span class="icon">⏰</span>
+        <div>
+          <h3>Jam Operasional</h3>
+          <p>Buka Setiap Hari<br>10.00 - 22.00 WIB</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span class="icon">📱</span>
+        <div>
+          <h3>WhatsApp / Reservasi</h3>
+          <p>+62 895-0891-543</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span class="icon">📷</span>
+        <div>
+          <h3>Instagram Kami</h3>
+          <p>Username: 5cmcoffee</p>
+        </div>
+      </div>
+    </section>
+
+
+<!-- INI LOKASI -->
+<section class="lokasi">
+      <h2>LOKASI</h2>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.81788377264!2d109.31679257472328!3d-0.02680329997292374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d59007178ab37%3A0x2159dd29619903b9!2s5CM%20Coffee%20%26%20Eatery%20(Cabang%20Pancasila)!5e0!3m2!1sid!2sid!4v1777717066080!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+      </section>
+
+      
+<!--INI CART-->
+<div class="cart" onclick="showCart()">🛒 Cart (<span id="cartCount">0</span>)</div>
+<div id="totalHarga">Total: Rp 0</div>
+<div id="backTop" onclick="scrollToTop()">⬆ Top</div>
+
+
+<!-- INI FOOTER -->
+<footer>
+  <p>© 2026 5Cm Cafe</p>
+</footer>
+
+     <script src="script.js"></script>
+  </body>
+</html>
