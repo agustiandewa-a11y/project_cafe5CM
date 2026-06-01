@@ -1,3 +1,4 @@
+<?php include 'koneksi.php'; ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -30,67 +31,31 @@
 <section id="menu">
   <h2>Menu 5Cm</h2>
   <div class="menu-grid">
-    <div class="card">
-      <img src="/Aset/minuman2.jpg">
-      <div class="card-content">
-        <h3>Salted Caramel</h3>
-        <p>Rp 25.000</p>
-        <button class="btn" onclick="addToCart('Salted Caramel')">+</button>
-        <button class="btn" onclick="decreaseItem('Salted Caramel')">-</button>
-      </div>
-    </div>
+    <?php
+    // 1. Ambil data menu dari database
+    $query = mysqli_query($koneksi, "SELECT * FROM menu");
 
-    <div class="card">
-      <img src="/Aset/minuman1.jpg">
-      <div class="card-content">
-        <h3>Coffee 5cm</h3>
-        <p>Rp 15.000</p>
-        <button class="btn" onclick="addToCart('Coffee 5cm')">+</button>
-        <button class="btn" onclick="decreaseItem('Coffee 5cm')">-</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="/Aset/minuman3.png">
-      <div class="card-content">
-        <h3>Matcha Latte</h3>
-        <p>Rp 28.000</p>
-        <button class="btn" onclick="addToCart('Matcha Latte')">+</button>
-        <button class="btn" onclick="decreaseItem('Matcha Latte')">-</button>
-      </div>
+    // 2. Cek apakah ada data di dalam database
+    if (mysqli_num_rows($query) > 0) {
+        // 3. Looping data jika menunya ada
+        while ($data = mysqli_fetch_array($query)) {
+    ?>
+        <div class="card">
+          <img src="Aset/<?php echo $data['gambar']; ?>" alt="<?php echo $data['nama_menu']; ?>">
+          <div class="card-content">
+            <h3><?php echo $data['nama_menu']; ?></h3>
+            <p>Rp <?php echo number_format($data['harga'], 0, ',', '.'); ?></p>
+            
+            <button class="btn" onclick="addToCart('<?php echo $data['nama_menu']; ?>')">+</button>
+            <button class="btn" onclick="decreaseItem('<?php echo $data['nama_menu']; ?>')">-</button>
+          </div>
+        </div>
+    <?php
+        }
+    }
+  ?>
   </div>
-  
-    <div class="card">
-        <img src="/Aset/lasagna.jpeg">
-        <div class="card-content">
-            <h3>5cm Lasagna</h3>
-            <p>Rp 35.000</p>
-            <button class="btn" onclick="addToCart('5cm Lasagna')">+</button>
-            <button class="btn" onclick="decreaseItem('5cm Lasagna')">-</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="/Aset/aglio.webp">
-        <div class="card-content">
-            <h3>Aglio O Elio</h3>
-            <p>Rp 30.000</p>
-            <button class="btn" onclick="addToCart('Aglio O Elio')">+</button>
-            <button class="btn" onclick="decreaseItem('Aglio O Elio')">-</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="/Aset/nasi_goreng.jpeg">
-        <div class="card-content">
-            <h3>Nasi Goreng Kampung</h3>
-            <p>Rp 22.000</p>
-            <button class="btn" onclick="addToCart('Nasi Goreng Kampung')">+</button>
-            <button class="btn" onclick="decreaseItem('Nasi Goreng Kampung')">-</button>
-        </div>
-      </div>
-    </div>
-  </section>
+</section>
 
 
 <!-- About Section -->
