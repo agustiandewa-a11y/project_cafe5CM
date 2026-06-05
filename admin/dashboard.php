@@ -1,5 +1,4 @@
 <?php
 
-include '../koneksi.php';
-
+include '../koneksi.php'; //inisiasi testing dashboard
 ?>
