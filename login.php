@@ -13,11 +13,7 @@ if (isset($_POST['submit_login'])) {
         $_SESSION['username'] = $username;
         header("Location: dashboard.php");
         exit();
-    } else {
-        // Jika tidak cocok
-        echo "<script>alert('Username atau Password Salah!');</script>";
     }
-}
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +35,7 @@ if (isset($_POST['submit_login'])) {
             <label>Password</label>
             <input type="password" name="password" required>
         </div>
-        <button type="submit" name="submit_login" class="btn-login">Masuk</button>
+        <button type="submit" name="submit_login" class="btn-login">Mashfgfyuk</button>
     </form>
 </div>
 

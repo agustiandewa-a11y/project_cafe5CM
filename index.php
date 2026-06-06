@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>5Cm Cafe</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
@@ -168,6 +168,6 @@
   <p>© 2026 5Cm Cafe</p>
 </footer>
 
-     <script src="script.js"></script>
+     <script src="../js/script.js"></script>
   </body>
 </html>
