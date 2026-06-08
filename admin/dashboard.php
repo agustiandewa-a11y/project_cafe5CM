@@ -7,4 +7,5 @@ include '../koneksi.php'; //inisiasi testing dashboard
 // 3. git checkout fitur-dashboard
 // 4. git status
 // 5. git add admin/dashboard.php
+// 6. git commit -m " joel masuk ke repo dan insight tentang dashboard"
 ?>
