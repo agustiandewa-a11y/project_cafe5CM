@@ -32,12 +32,9 @@
   <h2>Menu 5Cm</h2>
   <div class="menu-grid">
     <?php
-    // 1. Ambil data menu dari database
     $query = mysqli_query($koneksi, "SELECT * FROM menu");
 
-    // 2. Cek apakah ada data di dalam database
     if (mysqli_num_rows($query) > 0) {
-        // 3. Looping data jika menunya ada
         while ($data = mysqli_fetch_array($query)) {
     ?>
         <div class="card">
@@ -53,7 +50,7 @@
     <?php
         }
     }
-  ?>
+    ?>
   </div>
 </section>
 
