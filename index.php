@@ -58,7 +58,7 @@
 </section>
 
 
-<!-- About Section -->
+<!-- tentang Section -->
 <section class="tentang" id="Tentang">
   <div class="container">
     <div class="section-tentang">
