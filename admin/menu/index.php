@@ -1,7 +1,6 @@
 <?php
 include "../../koneksi.php";
 
-// Query disesuaikan dengan tabel Anda
 $query = mysqli_query($koneksi, "
     SELECT menu.*, kategori.nama_kategori 
     FROM menu 
@@ -19,6 +18,8 @@ $query = mysqli_query($koneksi, "
 <h2>Data Menu</h2>
 <a href="tambah.php">Tambah Menu</a>
 <br><br>
+<a href="../dashboard.php">Kembali ke Dashboard</a>
+<br><br>
 
 <table border="1" cellpadding="10" cellspacing="0">
     <tr>
@@ -32,7 +33,7 @@ $query = mysqli_query($koneksi, "
 
     <?php
     $no = 1;
-    // Menggunakan mysqli_fetch_assoc sesuai kebutuhan
+    
     while($data = mysqli_fetch_assoc($query)){
     ?>
     <tr>

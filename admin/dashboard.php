@@ -1,14 +1,14 @@
 <?php
-session_start(); // 1. WAJIB di baris pertama untuk membaca data session
+session_start(); 
 
-// 2. Proteksi Halaman: Cek apakah status session sudah "login"
+
 if (!isset($_SESSION['status']) || $_SESSION['status'] !== "login") {
-    // Jika belum login, tendang balik ke login.php di root
+    
     header("Location: ../login.php?pesan=belum_login");
     exit;
 }
 
-// 3. Include koneksi jika dashboard membutuhkan data dari DB
+
 include '../koneksi.php';
 ?>
 
@@ -28,8 +28,7 @@ include '../koneksi.php';
 
     <nav>
         <ul>
-            <li><a href="menu/tambah.php">Tambah Menu Baru</a></li>
-            <li><a href="menu/data_menu.php">Kelola Semua Menu</a></li>
+            <li><a href="menu/index.php">Kelola Semua Menu</a></li>
             <li><a href="../logout.php">Logout (Keluar)</a></li>
         </ul>
     </nav>
