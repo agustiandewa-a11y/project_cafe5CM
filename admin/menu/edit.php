@@ -8,7 +8,7 @@ if (!isset($_GET['id'])) {
 
 $menu_id = intval($_GET['id']);
 
-// Ambil data menu lama berdasarkan ID untuk pre-fill form
+
 $stmt_get = $koneksi->prepare("SELECT * FROM menu WHERE menu_id = ?");
 $stmt_get->bind_param("i", $menu_id);
 $stmt_get->execute();
@@ -22,7 +22,7 @@ if (!$menu) {
 }
 
 if (isset($_POST['submit'])) {
-    // Sanitasi input Anti-XSS & Manipulasi Data
+    
     $nama_menu   = htmlspecialchars($_POST['nama_menu']);
     $kategori_id = intval($_POST['kategori_id']);
     $harga       = intval($_POST['harga']);
@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
     $tmp_name    = $_FILES['gambar']['tmp_name'];
 
     if (!empty($gambar_baru)) {
-        // JIKA ADMIN MENGUBAH GAMBAR
+        
         $target_dir = "../../Aset/" . $gambar_baru;
         if (move_uploaded_file($tmp_name, $target_dir)) {
             // Hapus file gambar lama dari server
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
                 unlink($gambar_lama);
             }
             
-            // Query update dengan gambar baru
+            
             $stmt_update = $koneksi->prepare("UPDATE menu SET nama_menu = ?, harga = ?, kategori_id = ?, gambar = ? WHERE menu_id = ?");
             $stmt_update->bind_param("siisi", $nama_menu, $harga, $kategori_id, $gambar_baru, $menu_id);
         } else {
@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
             exit();
         }
     } else {
-        // JIKA ADMIN TIDAK MENGUBAH GAMBAR (Gunakan gambar lama)
+        
         $stmt_update = $koneksi->prepare("UPDATE menu SET nama_menu = ?, harga = ?, kategori_id = ? WHERE menu_id = ?");
         $stmt_update->bind_param("siii", $nama_menu, $harga, $kategori_id, $menu_id);
     }

@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     if ($data = $result->fetch_assoc()) {
         $gambar_lama = "../../Aset/" . $data['gambar'];
         if (file_exists($gambar_lama) && !empty($data['gambar'])) {
-            unlink($gambar_lama); // Menghapus file fisik gambar
+            unlink($gambar_lama); 
         }
     }
     $stmt_img->close();
