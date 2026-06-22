@@ -58,8 +58,6 @@ nav h2 {
     border-radius:20px;
     padding:70px 100px;
     box-shadow:0 10px 25px rgba(0,0,0,0.2);
-    justify-content: center;
-    align-items: center;
 }
 
 .login-box h2{
@@ -67,6 +65,8 @@ nav h2 {
     color:#8ba7b1;
     margin-bottom:40px;
     font-weight:600;
+    justify-content: center;
+    align-items: center;
 }
 
 .input-group{
