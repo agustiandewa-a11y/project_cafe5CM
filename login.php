@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+<div class="login-container">
 <body class="login-page">
 <div class="login-box">
     <h2>Login Admin</h2>
