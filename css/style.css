@@ -166,7 +166,7 @@ h2 {
 .cart:hover {
     transform: scale(1.1);
 }
- 
+
 #totalHarga {
     position:fixed;
     bottom:80px;
