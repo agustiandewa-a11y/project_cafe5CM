@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Admin - 5Cm Cafe</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
