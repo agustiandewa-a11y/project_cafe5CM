@@ -52,7 +52,74 @@ nav h2 {
 }
 
 /* form login */
+.login-box{
+    width:750px;
+    background:white;
+    border-radius:20px;
+    padding:70px 100px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
 
+.login-box h2{
+    font-size:60px;
+    color:#8ba7b1;
+    margin-bottom:40px;
+    font-weight:600;
+}
+
+.input-group{
+    margin-bottom:30px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:10px;
+    color:#8ba7b1;
+    font-size:18px;
+}
+
+.input-group input{
+    width:100%;
+    height:70px;
+    border:none;
+    outline:none;
+    border-radius:40px;
+    background:#f2f2f2;
+    padding:0 30px;
+    font-size:20px;
+    color:#555;
+}
+
+.forgot{
+    margin-top:-10px;
+    margin-bottom:40px;
+}
+
+.forgot a{
+    text-decoration:none;
+    color:#8ba7b1;
+    font-size:18px;
+}
+
+.btn-login{
+    display:block;
+    width:250px;
+    height:70px;
+    margin:auto;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(to right, #4bc6ef, #42b4eb);
+    color:white;
+    font-size:32px;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 15px 25px rgba(75,198,239,0.4);
+    transition:0.3s;
+}
+
+.btn-login:hover{
+    transform:translateY(-5px);
+}
 
   /* Ini Hero */
 .hero {
