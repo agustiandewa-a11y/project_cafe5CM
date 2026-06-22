@@ -15,11 +15,11 @@ if (isset($_POST['submit_login'])) {
         $_SESSION['status'] = "login";
         $_SESSION['username'] = $username;
         
-        // Masuk ke dalam folder admin
+        
         header("Location: admin/dashboard.php");
         exit;
     } else {
-        // Tetap di root
+        
         header("Location: login.php?pesan=gagal");
         exit;
     }
