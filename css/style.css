@@ -50,7 +50,29 @@ nav h2 {
     padding-top: 30px;
     margin-top: 10px;
 }
+.filter-menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
 
+.filter-btn {
+    text-decoration: none;
+    background: #1b4332;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: 0.3s;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.filter-btn:hover {
+    background: #40916c;
+    transform: translateY(-3px);
+}
 /* form login */
 body.login-page{
     margin: 0;

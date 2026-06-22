@@ -29,29 +29,57 @@
 
 <!-- Menu Section -->
 <section id="menu">
-  <h2>Menu 5Cm</h2>
-  <div class="menu-grid">
+    <h2>Menu 5Cm</h2>
+    <div class="filter-menu">
+        <a href="index.php#menu" class="filter-btn">Semua</a>
+        <a href="index.php?kategori=Makanan#menu" class="filter-btn">Makanan</a>
+        <a href="index.php?kategori=Minuman#menu" class="filter-btn">Minuman</a>
+        <a href="index.php?kategori=Snack#menu" class="filter-btn">Snack</a>
+    </div>
+    <div class="menu-grid">
     <?php
-    $query = mysqli_query($koneksi, "SELECT * FROM menu");
-
-    if (mysqli_num_rows($query) > 0) {
-        while ($data = mysqli_fetch_array($query)) {
+    $kategori = isset($_GET['kategori']) ? $_GET['kategori'] : '';
+    if($kategori != ''){
+        $query = mysqli_query($koneksi,"
+            SELECT menu.*, kategori.nama_kategori
+            FROM menu
+            JOIN kategori
+            ON menu.kategori_id = kategori.kategori_id
+            WHERE kategori.nama_kategori = '$kategori'
+        ");
+    } else {
+        $query = mysqli_query($koneksi,"
+            SELECT menu.*, kategori.nama_kategori
+            FROM menu
+            JOIN kategori
+            ON menu.kategori_id = kategori.kategori_id
+        ");
+    }
+    if(mysqli_num_rows($query) > 0){
+        while($data = mysqli_fetch_assoc($query)){
     ?>
         <div class="card">
-          <img src="Aset/<?php echo $data['gambar']; ?>" alt="<?php echo $data['nama_menu']; ?>">
-          <div class="card-content">
-            <h3><?php echo $data['nama_menu']; ?></h3>
-            <p>Rp <?php echo number_format($data['harga'], 0, ',', '.'); ?></p>
-            
-            <button class="btn" onclick="addToCart('<?php echo $data['nama_menu']; ?>')">+</button>
-            <button class="btn" onclick="decreaseItem('<?php echo $data['nama_menu']; ?>')">-</button>
-          </div>
+            <img src="Aset/<?php echo $data['gambar']; ?>" alt="<?php echo $data['nama_menu']; ?>">
+            <div class="card-content">
+                <h3><?php echo $data['nama_menu']; ?></h3>
+                <p>
+                    Rp <?php echo number_format($data['harga'],0,',','.'); ?>
+                </p>
+                <button class="btn"
+                    onclick="addToCart('<?php echo $data['nama_menu']; ?>')">
+                    +
+                </button>
+                <button class="btn"
+                    onclick="decreaseItem('<?php echo $data['nama_menu']; ?>')">
+                    -
+                </button>
+            </div>
         </div>
     <?php
         }
     }
     ?>
-  </div>
+    </div>
 </section>
 
 
