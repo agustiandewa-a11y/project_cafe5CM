@@ -52,11 +52,22 @@ nav h2 {
 }
 
 /* form login */
+body.login-page{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#33cc66, #00ff95);
+}
+
 .login-box{
-    width:750px;
+    width:650px;
     background:white;
     border-radius:20px;
     padding:70px 100px;
+    justify-content: center;
+    align-items: center;
     box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
@@ -65,8 +76,6 @@ nav h2 {
     color:#8ba7b1;
     margin-bottom:40px;
     font-weight:600;
-    justify-content: center;
-    align-items: center;
 }
 
 .input-group{

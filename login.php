@@ -5,8 +5,8 @@
     <title>Login Admin - 5Cm Cafe</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
+<body class="login-page">
 <div class="login-box">
     <h2>Login Admin</h2>
     <form action="sv_login.php" method="POST">
