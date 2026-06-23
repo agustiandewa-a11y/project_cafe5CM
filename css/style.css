@@ -490,12 +490,12 @@ h2 {
 
 .info-card:hover {
     transform: translateY(-10px); /* Efek melayang sedikit lebih tinggi (10px) */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Bayangan melebar saat disentuh */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
 }
 
 .info-card .icon {
     font-size: 40px;
-    margin: 0 0 15px 0; /* Memberi jarak hanya di bagian bawah ikon */
+    margin: 0 0 15px 0;
 }
 
 .info-card h3 {
