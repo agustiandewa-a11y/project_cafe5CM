@@ -19,8 +19,8 @@ include '../koneksi.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin - 5Cm Cafe</title>
 </head>
-<body>
 
+<body class="dashboard-page">
     <h2>Selamat Datang, <?= htmlspecialchars($_SESSION['username']); ?>!</h2>
     <p>Ini adalah halaman utama pengelolaan sistem Cafe 5Cm.</p>
 
