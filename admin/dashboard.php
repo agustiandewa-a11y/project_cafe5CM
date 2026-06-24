@@ -37,10 +37,5 @@ include '../koneksi.php';
         <div class="top-bar">
             <h1>Dashboard</h1>
         </div>
-        
-        <div class="content-body">
-            </div>
-    </div>
-
 </body>
 </html>

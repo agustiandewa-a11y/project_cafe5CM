@@ -216,8 +216,9 @@ body.dashboard-page .sidebar {
 
 /* itok 5CM nye */
 body.dashboard-page .sidebar h2 {
-    font-size: 32px;
-    color: #333333;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: #1b4332;
     font-weight: 600;
     margin-bottom: 40px;
     text-align: left;
@@ -256,17 +257,18 @@ body.dashboard-page .sidebar nav ul li a:hover {
 body.dashboard-page .main-content {
     margin-left: 260px;
     flex: 1;
+    min-height: 100vh;min-height: 100vh;
 }
 
 /* itok tempat tulisan Dashboard */
 body.dashboard-page .top-bar {
     background-color: #ffffff;
-    padding: 20px 40px;
+    padding: 40px 40px;
     border-bottom: 1px solid #e0e0e0;
 }
 
 body.dashboard-page .top-bar h1 {
-    font-size: 22px;
+    font-size: 30px;
     color: #333333;
     font-weight: 500;
     margin: 0;
@@ -275,6 +277,236 @@ body.dashboard-page .top-bar h1 {
 /* pun itok area putih yang masih kosong i */
 body.dashboard-page .content-body {
     padding: 40px;
+    flex: 1;
+}
+
+/* INI DATA MENU YEEE */
+body.dm-layout-body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+}
+
+/* Sidebar */
+body.dm-layout-body .dm-sidebar-wrapper {
+    width: 260px;
+    height: 100vh;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0; left: 0;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.02);
+    padding: 30px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+body.dm-layout-body .dm-logo-text {
+    font-size: 50px;
+    font-weight: 800;
+    color: #1b4332;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    letter-spacing: 1px;
+}
+
+body.dm-layout-body .dm-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+body.dm-layout-body .dm-nav-item {
+    display: block;
+    padding: 14px 18px;
+    color: #4b5563;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+/* Link Menu yang sedang Aktif */
+body.dm-layout-body .dm-nav-item.dm-item-active {
+    background-color: #1b4332;
+    color: #ffffff;
+}
+
+body.dm-layout-body .dm-nav-item:hover:not(.dm-item-active) {
+    background-color: #f3f4f6;
+    color: #1b4332;
+}
+
+/* Layout Konten Sebelah Kanan */
+body.dm-layout-body .dm-main-container {
+    margin-left: 260px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+body.dm-layout-body .dm-top-navbar {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    border-bottom: 1px solid #efefef;
+}
+
+body.dm-layout-body .dm-top-navbar h1 {
+    margin: 0;
+    font-size: 22px;
+    color: #111827;
+    font-weight: 700;
+}
+
+/* Konten Dalam Page */
+.dm-content-page {
+    padding: 30px;
+}
+
+.dm-header-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.dm-header-action h2 {
+    color: #1b4332;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Tombol Tambah Data */
+.dm-btn-add {
+    background-color: #1b4332;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(27, 67, 50, 0.2);
+    transition: all 0.3s ease;
+}
+
+.dm-btn-add:hover {
+    background-color: #2d6a4f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(27, 67, 50, 0.3);
+}
+
+/* Desain Tabel Premium */
+.dm-card-table {
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+}
+
+.dm-table-premium {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dm-table-premium th {
+    color: #2d6a4f;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 16px 20px;
+    border-bottom: 1px solid #2d6a4f;
+    text-align: left;
+}
+
+.dm-table-premium td {
+    padding: 20px;
+    border-bottom: 1px solid #f9fafb;
+    color: #4b5563;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.dm-table-premium tbody tr:hover {
+    background-color: #fafafa;
+}
+
+/* Detail data di baris tabel */
+.dm-img-thumb {
+    width: 70px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.dm-txt-name {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.dm-txt-price {
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Badge Kategori */
+.dm-tag-cat {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #e0f2fe; /* Minuman = Biru Soft */
+    color: #0369a1;
+}
+
+.dm-tag-cat.dm-cat-makanan {
+    background-color: #fef3c7; /* Makanan = Kuning Soft */
+    color: #d97706;
+}
+
+/* Tombol Aksi */
+.dm-btn-group {
+    display: flex;
+    gap: 8px;
+}
+
+.dm-action-link {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.dm-lnk-edit {
+    border: 1px solid #3b82f6;
+    color: #3b82f6;
+}
+.dm-lnk-edit:hover {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+.dm-lnk-delete {
+    border: 1px solid #ef4444;
+    color: #ef4444;
+}
+.dm-lnk-delete:hover {
+    background-color: #ef4444;
+    color: #ffffff;
 }
 
   /* Ini Hero */
