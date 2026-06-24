@@ -68,6 +68,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <title>Edit Menu - Admin5CM</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 <div class="form-container">

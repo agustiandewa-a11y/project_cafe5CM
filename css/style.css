@@ -293,7 +293,7 @@ body.dm-layout-body {
 body.dm-layout-body .dm-sidebar-wrapper {
     width: 260px;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #1b4332;
     position: fixed;
     top: 0; left: 0;
     box-shadow: 2px 0 20px rgba(0, 0, 0, 0.02);
@@ -304,10 +304,14 @@ body.dm-layout-body .dm-sidebar-wrapper {
     z-index: 100;
 }
 
+body.dm-layout-body .dm-sidebar-wrapper a{
+    color: #fff;
+}
+
 body.dm-layout-body .dm-logo-text {
     font-size: 50px;
     font-weight: 800;
-    color: #1b4332;
+    color: #ffffff;
     margin-bottom: 30px;
     padding-left: 10px;
     letter-spacing: 1px;
@@ -352,7 +356,7 @@ body.dm-layout-body .dm-main-container {
 }
 
 body.dm-layout-body .dm-top-navbar {
-    background-color: #ffffff;
+    background-color: #1b4332;
     padding: 20px 40px;
     border-bottom: 1px solid #efefef;
 }
@@ -360,7 +364,7 @@ body.dm-layout-body .dm-top-navbar {
 body.dm-layout-body .dm-top-navbar h1 {
     margin: 0;
     font-size: 22px;
-    color: #111827;
+    color: #fff;
     font-weight: 700;
 }
 
@@ -467,12 +471,12 @@ body.dm-layout-body .dm-top-navbar h1 {
     border-radius: 20px;
     font-size: 13px;
     font-weight: 500;
-    background-color: #e0f2fe; /* Minuman = Biru Soft */
+    background-color: #e0f2fe;
     color: #0369a1;
 }
 
 .dm-tag-cat.dm-cat-makanan {
-    background-color: #fef3c7; /* Makanan = Kuning Soft */
+    background-color: #fef3c7;
     color: #d97706;
 }
 
@@ -507,6 +511,107 @@ body.dm-layout-body .dm-top-navbar h1 {
 .dm-lnk-delete:hover {
     background-color: #ef4444;
     color: #ffffff;
+}
+
+/* BAGIAN EDIT INI WOI */
+.form-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.form-container h2 {
+    color: #14532d;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.form-container form {
+    position: relative;
+    padding-right: 330px; 
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1f2937;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.form-group br {
+    display: none;
+}
+
+.form-group:nth-of-type(4) label:first-of-type {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 280px;
+}
+
+.form-container form img {
+    position: absolute;
+    top: 28px;
+    right: 0;
+    width: 280px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 0 !important;
+}
+
+.form-container button[type="submit"] {
+    background-color: #14532d;
+    color: #ffffff;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: #166534;
+}
+
+.form-container a {
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.form-container a:hover {
+    color: #1f2937;
+    text-decoration: underline;
 }
 
   /* Ini Hero */
