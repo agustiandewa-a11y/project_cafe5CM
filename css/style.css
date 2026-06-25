@@ -289,7 +289,7 @@ body.dm-layout-body {
     display: flex;
 }
 
-/* Sidebar */
+/* ini Sidebar nya */
 body.dm-layout-body .dm-sidebar-wrapper {
     width: 260px;
     height: 100vh;
@@ -334,7 +334,6 @@ body.dm-layout-body .dm-nav-item {
     transition: all 0.3s ease;
 }
 
-/* Link Menu yang sedang Aktif */
 body.dm-layout-body .dm-nav-item.dm-item-active {
     background-color: #1b4332;
     color: #ffffff;
@@ -387,7 +386,6 @@ body.dm-layout-body .dm-top-navbar h1 {
     margin: 0;
 }
 
-/* Tombol Tambah Data */
 .dm-btn-add {
     background-color: #1b4332;
     color: #ffffff;
@@ -409,7 +407,6 @@ body.dm-layout-body .dm-top-navbar h1 {
     box-shadow: 0 6px 15px rgba(27, 67, 50, 0.3);
 }
 
-/* Desain Tabel Premium */
 .dm-card-table {
     background-color: #ffffff;
     border-radius: 18px;
@@ -445,7 +442,6 @@ body.dm-layout-body .dm-top-navbar h1 {
     background-color: #fafafa;
 }
 
-/* Detail data di baris tabel */
 .dm-img-thumb {
     width: 70px;
     height: 85px;
@@ -464,7 +460,6 @@ body.dm-layout-body .dm-top-navbar h1 {
     color: #111827;
 }
 
-/* Badge Kategori */
 .dm-tag-cat {
     display: inline-block;
     padding: 6px 16px;
@@ -480,7 +475,6 @@ body.dm-layout-body .dm-top-navbar h1 {
     color: #d97706;
 }
 
-/* Tombol Aksi */
 .dm-btn-group {
     display: flex;
     gap: 8px;
@@ -612,6 +606,111 @@ body.dm-layout-body .dm-top-navbar h1 {
 .form-container a:hover {
     color: #1f2937;
     text-decoration: underline;
+}
+
+/* INI BAGIAN TAMBAH MENU YEE */
+.form-container {
+    max-width: 750px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    position: relative;
+    padding-bottom: 120px;
+}
+
+.form-container h2 {
+    color: #14532d;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    outline: none;
+    border-color: #14532d;
+}
+
+.form-container input[type="file"] {
+    width: 100%;
+    padding: 30px 20px;
+    border: 2px dashed #d1d5db;
+    border-radius: 10px;
+    background-color: #f9fafb;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.form-container .btn-submit {
+    position: absolute;
+    padding-bottom: 10px;
+    background-color: #14532d;
+    color: #ffffff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form-container .btn-secondary {
+    position: absolute;
+    bottom: 30px;
+    background-color: #ffffff;
+    color: #4b5563;
+    padding: 11px 24px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* hover */
+.form-container .btn-submit:hover { background-color: #166534; }
+.form-container .btn-secondary:hover { background-color: #f9fafb; }
+
+.preview-container {
+    margin-top: 15px;
+    text-align: left;
+}
+
+#previewGambar {
+    display: none;
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    object-fit: cover;
 }
 
   /* Ini Hero */

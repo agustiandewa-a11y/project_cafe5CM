@@ -37,6 +37,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <title>Tambah Menu - Admin5CM</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 <div class="form-container">
@@ -52,10 +53,8 @@ if (isset($_POST['submit'])) {
             <select name="kategori_id" required>
                 <option value="">-- Pilih Kategori --</option>
                 <?php
-                
                 $kat_query = mysqli_query($koneksi, "SELECT * FROM kategori");
                 while ($kat = mysqli_fetch_assoc($kat_query)) {
-                    
                     echo "<option value='" . intval($kat['kategori_id']) . "'>" . htmlspecialchars($kat['nama_kategori']) . "</option>";
                 }
                 ?>
@@ -69,12 +68,39 @@ if (isset($_POST['submit'])) {
         
         <div class="form-group">
             <label>Gambar Menu</label>
-            <input type="file" name="gambar" accept="image/*" required>
+            <input type="file" name="gambar" id="inputGambar" accept="image/*" required>
+            
+            <div class="preview-container">
+                <img id="previewGambar" src="#" alt="Pratinjau Gambar">
+            </div>
         </div>
         
         <button type="submit" name="submit" class="btn-submit">Tambah Menu</button>
     </form>
     <a href="index.php" class="btn btn-secondary"> Kembali</a>
 </div>
+
+<script>
+    const inputGambar = document.getElementById('inputGambar');
+    const previewGambar = document.getElementById('previewGambar');
+
+    inputGambar.addEventListener('change', function() {
+        const file = this.files[0];
+        
+        if (file) {
+            const reader = new FileReader();
+            
+            reader.addEventListener('load', function() {
+                previewGambar.setAttribute('src', this.result);
+                previewGambar.style.display = 'block';
+            });
+            
+            reader.readAsDataURL(file);
+        } else {
+            previewGambar.style.display = 'none';
+            previewGambar.setAttribute('src', '#');
+        }s
+    });
+</script>
 </body>
 </html>

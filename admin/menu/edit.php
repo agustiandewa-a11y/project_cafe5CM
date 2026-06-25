@@ -86,7 +86,6 @@ if (isset($_POST['submit'])) {
                 <?php
                 $kat_query = mysqli_query($koneksi, "SELECT * FROM kategori");
                 while ($kat = mysqli_fetch_assoc($kat_query)) {
-                    
                     $selected = ($kat['kategori_id'] == $menu['kategori_id']) ? 'selected' : '';
                     echo "<option value='" . intval($kat['kategori_id']) . "' $selected>" . htmlspecialchars($kat['nama_kategori']) . "</option>";
                 }
@@ -101,14 +100,42 @@ if (isset($_POST['submit'])) {
         
         <div class="form-group">
             <label>Gambar Menu saat ini:</label><br>
-            <img src="../../Aset/<?= htmlspecialchars($menu['gambar']); ?>" width="100" style="margin-bottom:10px;"><br>
+            <img id="previewGambar" src="../../Aset/<?= htmlspecialchars($menu['gambar']); ?>" width="100" style="margin-bottom:10px;"><br>
+            
             <label>Pilih Gambar Baru (Kosongkan jika tidak diubah)</label>
-            <input type="file" name="gambar" accept="image/*">
+            <input type="file" name="gambar" id="inputGambar" accept="image/*">
         </div>
         
-        <button type="submit" name="submit">Simpan Perubahan</button>
+        <button type="submit" name="submit" class="btn-submit">Simpan Perubahan</button>
     </form>
-    <a href="index.php" style="display:inline-block; margin-top:15px;">&larr; Kembali</a>
+    <a href="index.php" class="btn btn-secondary" style="display:inline-block; margin-top:15px;">&larr; Kembali</a>
 </div>
 </body>
 </html>
+
+<script>
+    const inputGambar = document.getElementById('inputGambar');
+    const previewGambar = document.getElementById('previewGambar');
+
+    if (!inputGambar || !previewGambar) {
+        console.error("Error: ID 'inputGambar' atau 'previewGambar' tidak ditemukan di HTML!");
+    } else {
+        inputGambar.addEventListener('change', function() {
+            const file = this.files[0];
+            
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.addEventListener('load', function() {
+                    previewGambar.setAttribute('src', this.result);
+                    previewGambar.style.display = 'block'; 
+                });
+                
+                reader.readAsDataURL(file);
+            } else {
+                previewGambar.style.display = 'none';
+                previewGambar.setAttribute('src', '#');
+            }
+        });
+    }
+</script>

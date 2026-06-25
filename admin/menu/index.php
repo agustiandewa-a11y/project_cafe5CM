@@ -16,8 +16,8 @@ $query = mysqli_query($koneksi, "
     <title>Data Menu - 5Cm Cafe</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
-<body class="dm-layout-body">
 
+<body class="dm-layout-body">
     <div class="dm-sidebar-wrapper">
         <div class="dm-logo-text">5CM</div>
         <nav class="dm-navigation">
@@ -28,7 +28,6 @@ $query = mysqli_query($koneksi, "
     </div>
 
     <div class="dm-main-container">
-        
         <div class="dm-top-navbar">
             <h1>Kelola Data Menu</h1>
         </div>
