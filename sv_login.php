@@ -1,30 +1,35 @@
 <?php
-// Langsung panggil karena satu folder di root
+// code php yang akan dimplementasikan menggunakan Prepared Statement
 include "koneksi.php"; 
 session_start();
 
-if (isset($_POST['submit_login'])) {
-    
+if(isset($_POST['submit_login'])) {
+
     $username = $_POST['username'];
-    $password = md5($_POST['password']); 
-    
-    $query = mysqli_query($koneksi, "SELECT * FROM admin WHERE username='$username' AND password='$password'");
-    $cek = mysqli_num_rows($query);
+    $password = md5($_POST['password']);
+
+    $sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
+    $stmt = mysqli_prepare($koneksi, $sql);
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $cek = mysqli_num_rows($result);
 
     if ($cek > 0) {
         $_SESSION['status'] = "login";
         $_SESSION['username'] = $username;
-        
-        
+        mysqli_stmt_close($stmt);
+
         header("Location: admin/dashboard.php");
         exit;
     } else {
-        
+        mysqli_stmt_close($stmt);
         header("Location: login.php?pesan=gagal");
         exit;
     }
-} else {
-    header("Location: login.php");
-    exit;
-}
+    } else {
+        header("Location: login.php");
+        }
+    }
 ?>
