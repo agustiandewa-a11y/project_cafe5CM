@@ -1,10 +1,18 @@
 <?php
+session_start(); 
 include "../../koneksi.php";
 
+
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: ../../login.php");
+    exit();
+}
+
 $query = mysqli_query($koneksi, "
-    SELECT menu.*, kategori.nama_kategori 
+    SELECT menu.*, kategori.nama_kategori, admin.username AS nama_admin 
     FROM menu 
     LEFT JOIN kategori ON menu.kategori_id = kategori.kategori_id
+    LEFT JOIN admin ON menu.admin_id = admin.admin_id
 ");
 ?>
 
@@ -47,7 +55,7 @@ $query = mysqli_query($koneksi, "
                             <th>Kategori</th>
                             <th>Harga</th>
                             <th>Gambar</th>
-                            <th style="text-align: center; width: 180px;">Aksi</th>
+                            <th>Diubah Oleh</th> <th style="text-align: center; width: 180px;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,12 +79,19 @@ $query = mysqli_query($koneksi, "
                             <td>
                                 <img src="../../Aset/<?= htmlspecialchars($data['gambar']); ?>" class="dm-img-thumb" alt="Menu">
                             </td>
+                            
+                            <td>
+                                <span class="dm-txt-admin">
+                                    <?= htmlspecialchars($data['nama_admin'] ?? ''); ?>
+                                </span>
+                            </td>
+                            
                             <td>
                                 <div class="dm-btn-group">
                                     <a href="edit.php?id=<?= $data['menu_id']; ?>" class="dm-action-link dm-lnk-edit">Edit</a>
                                     <a href="hapus.php?id=<?= $data['menu_id']; ?>" 
-                                       class="dm-action-link dm-lnk-delete"
-                                       onclick="return confirm('Yakin hapus data?')">Hapus</a>
+                                    class="dm-action-link dm-lnk-delete"
+                                    onclick="return confirm('Yakin hapus data?')">Hapus</a>
                                 </div>
                             </td>
                         </tr>

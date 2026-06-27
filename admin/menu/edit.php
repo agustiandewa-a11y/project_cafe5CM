@@ -1,5 +1,11 @@
 <?php
+session_start(); 
 include '../../koneksi.php';
+
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: ../../login.php");
+    exit();
+}
 
 if (!isset($_GET['id'])) {
     header("Location: index.php");
@@ -7,7 +13,6 @@ if (!isset($_GET['id'])) {
 }
 
 $menu_id = intval($_GET['id']);
-
 
 $stmt_get = $koneksi->prepare("SELECT * FROM menu WHERE menu_id = ?");
 $stmt_get->bind_param("i", $menu_id);
@@ -26,6 +31,7 @@ if (isset($_POST['submit'])) {
     $nama_menu   = htmlspecialchars($_POST['nama_menu']);
     $kategori_id = intval($_POST['kategori_id']);
     $harga       = intval($_POST['harga']);
+    $admin_id    = intval($_SESSION['admin_id']); 
     
     $gambar_baru = $_FILES['gambar']['name'];
     $tmp_name    = $_FILES['gambar']['tmp_name'];
@@ -34,23 +40,22 @@ if (isset($_POST['submit'])) {
         
         $target_dir = "../../Aset/" . $gambar_baru;
         if (move_uploaded_file($tmp_name, $target_dir)) {
-            // Hapus file gambar lama dari server
+
             $gambar_lama = "../../Aset/" . $menu['gambar'];
             if (file_exists($gambar_lama) && !empty($menu['gambar'])) {
                 unlink($gambar_lama);
             }
             
-            
-            $stmt_update = $koneksi->prepare("UPDATE menu SET nama_menu = ?, harga = ?, kategori_id = ?, gambar = ? WHERE menu_id = ?");
-            $stmt_update->bind_param("siisi", $nama_menu, $harga, $kategori_id, $gambar_baru, $menu_id);
+            $stmt_update = $koneksi->prepare("UPDATE menu SET admin_id = ?, nama_menu = ?, harga = ?, kategori_id = ?, gambar = ? WHERE menu_id = ?");
+            $stmt_update->bind_param("isiisi", $admin_id, $nama_menu, $harga, $kategori_id, $gambar_baru, $menu_id);
         } else {
             echo "Gagal mengunggah gambar baru.";
             exit();
         }
     } else {
         
-        $stmt_update = $koneksi->prepare("UPDATE menu SET nama_menu = ?, harga = ?, kategori_id = ? WHERE menu_id = ?");
-        $stmt_update->bind_param("siii", $nama_menu, $harga, $kategori_id, $menu_id);
+        $stmt_update = $koneksi->prepare("UPDATE menu SET admin_id = ?, nama_menu = ?, harga = ?, kategori_id = ? WHERE menu_id = ?");
+        $stmt_update->bind_param("isiii", $admin_id, $nama_menu, $harga, $kategori_id, $menu_id);
     }
 
     if ($stmt_update->execute()) {
@@ -76,7 +81,7 @@ if (isset($_POST['submit'])) {
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label>Nama Menu</label>
-            <input type="text" name="nama_menu" value="<?= htmlspecialchars($menu['nama_menu']); ?>" required>
+            <input type="text" name="nama_menu" value="<?php echo htmlspecialchars($menu['nama_menu']); ?>" required>
         </div>
         
         <div class="form-group">
@@ -86,7 +91,7 @@ if (isset($_POST['submit'])) {
                 <?php
                 $kat_query = mysqli_query($koneksi, "SELECT * FROM kategori");
                 while ($kat = mysqli_fetch_assoc($kat_query)) {
-                    $selected = ($kat['kategori_id'] == $menu['kategori_id']) ? 'selected' : '';
+                    $selected = ($kat['kategori_id'] == $menu['kategori_id']) ? "selected" : "";
                     echo "<option value='" . intval($kat['kategori_id']) . "' $selected>" . htmlspecialchars($kat['nama_kategori']) . "</option>";
                 }
                 ?>
@@ -95,22 +100,26 @@ if (isset($_POST['submit'])) {
         
         <div class="form-group">
             <label>Harga (Rp)</label>
-            <input type="number" name="harga" value="<?= intval($menu['harga']); ?>" required>
+            <input type="number" name="harga" value="<?php echo intval($menu['harga']); ?>" required>
         </div>
         
         <div class="form-group">
-            <label>Gambar Menu saat ini:</label><br>
-            <img id="previewGambar" src="../../Aset/<?= htmlspecialchars($menu['gambar']); ?>" width="100" style="margin-bottom:10px;"><br>
+            <label>Gambar Menu Saat Ini</label><br>
+            <img src="../../Aset/<?php echo htmlspecialchars($menu['gambar']); ?>" width="120" style="margin-bottom: 10px; border-radius: 5px;"><br>
             
-            <label>Pilih Gambar Baru (Kosongkan jika tidak diubah)</label>
+            <label>Ganti Gambar Baru *(Kosongkan jika tidak ingin diubah)</label>
             <input type="file" name="gambar" id="inputGambar" accept="image/*">
+            
+            <div class="preview-container">
+                <img id="previewGambar" src="#" alt="Pratinjau Gambar Baru">
+            </div>
         </div>
         
         <button type="submit" name="submit" class="btn-submit">Simpan Perubahan</button>
     </form>
-    <a href="index.php" class="btn btn-secondary" style="display:inline-block; margin-top:15px;">&larr; Kembali</a>
+    <a href="index.php" class="btn btn-secondary" style="margin-top: 10px; display: inline-block;">Kembali</a>
 </div>
 
-    <script src="../../JavaScript/script.js"></script>
+<script src="../../JavaScript/script.js"></script>
 </body>
 </html>

@@ -1,23 +1,30 @@
 <?php
+session_start();
 include '../../koneksi.php';
+
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: ../../login.php");
+    exit();
+}
 
 if (isset($_POST['submit'])) {
     
     $nama_menu   = htmlspecialchars($_POST['nama_menu']);
     $kategori_id = intval($_POST['kategori_id']);
     $harga       = intval($_POST['harga']);
+    $admin_id    = intval($_SESSION['admin_id']); 
 
-    // Manajemen Upload Gambar
+    
     $gambar     = $_FILES['gambar']['name'];
     $tmp_name   = $_FILES['gambar']['tmp_name'];
     $target_dir = "../../Aset/" . $gambar;
 
     if (move_uploaded_file($tmp_name, $target_dir)) {
         
-        $stmt = $koneksi->prepare("INSERT INTO menu (nama_menu, harga, kategori_id, gambar) VALUES (?, ?, ?, ?)");
+        $stmt = $koneksi->prepare("INSERT INTO menu (nama_menu, harga, kategori_id, gambar, admin_id) VALUES (?, ?, ?, ?, ?)");
         
         
-        $stmt->bind_param("siis", $nama_menu, $harga, $kategori_id, $gambar);
+        $stmt->bind_param("iisis", $nama_menu, $harga, $kategori_id, $gambar, $admin_id);
 
         if ($stmt->execute()) {
             header("Location: index.php?pesan=tambah_sukses");

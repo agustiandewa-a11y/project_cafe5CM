@@ -2,10 +2,9 @@
 session_start(); 
 
 
-if (!isset($_SESSION['status']) || $_SESSION['status'] !== "login") {
-    
-    header("Location: ../login.php?pesan=belum_login");
-    exit;
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: ../../login.php");
+    exit();
 }
 
 
