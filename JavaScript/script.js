@@ -47,9 +47,37 @@
     window.open('https://wa.me/628950891543?text='+text);
   }
 
-
-  // Back to top button visibility
   window.addEventListener('scroll',()=>{
     const btn=document.getElementById('backTop');
     if(window.scrollY>300) btn.style.display='block'; else btn.style.display='none';
   });
+  
+// ini js "edit" sama "tambah" //
+const inputGambar = document.getElementById('inputGambar');
+const previewGambar = document.getElementById('previewGambar');
+
+if (inputGambar && previewGambar) {
+    const gambarAwal = previewGambar.getAttribute('src');
+
+    inputGambar.addEventListener('change', function() {
+        const file = this.files[0];
+        
+        if (file) {
+            const reader = new FileReader();
+            
+            reader.addEventListener('load', function() {
+                previewGambar.setAttribute('src', this.result);
+                previewGambar.style.display = 'block'; // Tampilkan gambarnya
+            });
+            
+            reader.readAsDataURL(file);
+        } else {
+            if (gambarAwal && gambarAwal !== '#') {
+                previewGambar.setAttribute('src', gambarAwal);
+            } else {
+                previewGambar.style.display = 'none';
+                previewGambar.setAttribute('src', '#');
+            }
+        }
+    });
+}

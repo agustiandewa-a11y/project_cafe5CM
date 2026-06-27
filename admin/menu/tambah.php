@@ -80,27 +80,6 @@ if (isset($_POST['submit'])) {
     <a href="index.php" class="btn btn-secondary"> Kembali</a>
 </div>
 
-<script>
-    const inputGambar = document.getElementById('inputGambar');
-    const previewGambar = document.getElementById('previewGambar');
-
-    inputGambar.addEventListener('change', function() {
-        const file = this.files[0];
-        
-        if (file) {
-            const reader = new FileReader();
-            
-            reader.addEventListener('load', function() {
-                previewGambar.setAttribute('src', this.result);
-                previewGambar.style.display = 'block';
-            });
-            
-            reader.readAsDataURL(file);
-        } else {
-            previewGambar.style.display = 'none';
-            previewGambar.setAttribute('src', '#');
-        }s
-    });
-</script>
+<script src="../../JavaScript/script.js"></script>
 </body>
 </html>

@@ -110,32 +110,7 @@ if (isset($_POST['submit'])) {
     </form>
     <a href="index.php" class="btn btn-secondary" style="display:inline-block; margin-top:15px;">&larr; Kembali</a>
 </div>
+
+    <script src="../../JavaScript/script.js"></script>
 </body>
 </html>
-
-<script>
-    const inputGambar = document.getElementById('inputGambar');
-    const previewGambar = document.getElementById('previewGambar');
-
-    if (!inputGambar || !previewGambar) {
-        console.error("Error: ID 'inputGambar' atau 'previewGambar' tidak ditemukan di HTML!");
-    } else {
-        inputGambar.addEventListener('change', function() {
-            const file = this.files[0];
-            
-            if (file) {
-                const reader = new FileReader();
-                
-                reader.addEventListener('load', function() {
-                    previewGambar.setAttribute('src', this.result);
-                    previewGambar.style.display = 'block'; 
-                });
-                
-                reader.readAsDataURL(file);
-            } else {
-                previewGambar.style.display = 'none';
-                previewGambar.setAttribute('src', '#');
-            }
-        });
-    }
-</script>
