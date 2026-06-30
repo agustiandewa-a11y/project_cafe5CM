@@ -122,13 +122,14 @@
     </section>
 
 
-<!-- kontak Section -->
+<!-- kontak -->
 <section id="kontak" class="kontak-modern">
   <div class="kontak-header">
     <h2>KONTAK</h2>
     <p>Punya pertanyaan, kritik, atau ingin reservasi? Yuk mampir atau hubungi kami!</p>
   </div>
 
+  <!-- Area Kontak Info (WA, IG, Lokasi) -->
   <div class="kontak-grid-modern">
     <div class="kontak-info">
       
@@ -163,7 +164,51 @@
           <p>Username: 5cmcoffee</p>
         </div>
       </div>
-    </section>
+
+    </div> <!-- </kontak-info> DI SINI BATAS AKHIR KOTAK 4 KARTU -->
+  </div>
+
+<div class="reservasi-container">
+    <div class="reservasi-header">
+        <h2>Form Registrasi</h2>
+    </div>
+
+    <form action="proses_reservasi.php" method="POST">
+        
+        <!-- BARIS 1: Nama & No Telepon -->
+        <div class="reservasi-row">
+            <div class="reservasi-group">
+                <label for="nama_lengkap">Nama Lengkap</label>
+                <input type="text" id="nama_lengkap" name="nama_lengkap" placeholder="Masukkan nama lengkap" required>
+            </div>
+            <div class="reservasi-group">
+                <label for="no_telepon">No. Telepon</label>
+                <input type="text" id="no_telepon" name="no_telepon" placeholder="Masukkan nomor telepon" required>
+            </div>
+        </div>
+
+        <!-- BARIS 2: Tanggal & Jumlah Pelanggan -->
+        <div class="reservasi-row">
+            <div class="reservasi-group">
+                <label for="tanggal">Tanggal Reservasi</label>
+                <input type="date" id="tanggal" name="tanggal" required>
+            </div>
+            <div class="reservasi-group">
+                <label for="jumlah_pelanggan">Jumlah Pelanggan</label>
+                <input type="number" id="jumlah_pelanggan" name="jumlah_pelanggan" min="1" required>
+            </div>
+        </div>
+
+        <!-- BARIS 4: Catatan -->
+        <div class="reservasi-group">
+            <label for="catatan">Catatan (Opsional)</label>
+            <textarea id="catatan" name="catatan" rows="4" placeholder="Tulis catatan atau permintaan khusus..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-reservasi">Registrasi Sekarang</button>
+    </form>
+  </div>
+</section>
 
 
 <!-- INI LOKASI -->
