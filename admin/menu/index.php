@@ -30,7 +30,8 @@ $query = mysqli_query($koneksi, "
         <div class="dm-logo-text">5CM</div>
         <nav class="dm-navigation">
             <a href="../dashboard.php" class="dm-nav-item">Dashboard</a>
-            <a href="index.php" class="dm-nav-item dm-item-active">Kelola Semua Menu</a>
+            <a href="index.php" class="dm-nav-item dm-item-active">Kelola Menu</a>
+            <a href="../kategori/index.php" class="dm-nav-item"> Kelola Kategori</a>
             <a href="../../logout.php" class="dm-nav-item">Logout</a>
         </nav>
     </div>

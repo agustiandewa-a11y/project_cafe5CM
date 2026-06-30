@@ -27,6 +27,7 @@ include '../koneksi.php';
         <nav>
             <ul>
                 <li><a href="menu/index.php">Kelola Semua Menu</a></li>
+                <li><a href="kategori/index.php">Kelola Kategori</a></li>
                 <li><a href="../logout.php">Logout</a></li>
             </ul>
         </nav>
