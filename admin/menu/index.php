@@ -63,8 +63,23 @@ $query = mysqli_query($koneksi, "
                         <?php
                         $no = 1;
                         while($data = mysqli_fetch_assoc($query)){
-                            $kat = htmlspecialchars($data['nama_kategori'] ?? 'Tidak ada kategori');
-                            $badge_class = (strtolower($kat) == 'makanan') ? 'dm-tag-cat dm-cat-makanan' : 'dm-tag-cat';
+                        $kat = htmlspecialchars($data['nama_kategori'] ?? 'Tidak ada kategori');
+                        $badge_class = "dm-tag-kat";
+
+                        switch (strtolower($kat)) {
+                        case "makanan":
+                            $badge_class .= " dm-kat-makanan";
+                            break;
+                        case "minuman":
+                            $badge_class .= " dm-kat-minuman";
+                            break;
+                        case "dessert":
+                            $badge_class .= " dm-kat-dessert";
+                            break;
+                        default:
+                            $badge_class .= " dm-kat-default";
+                            break;
+                    }
                         ?>
                         <tr>
                             <td><?= $no++; ?></td>

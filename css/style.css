@@ -458,20 +458,32 @@ body.dm-layout-body .dm-top-navbar h1 {
     font-weight: 600;
     color: #111827;
 }
-
-.dm-tag-cat {
+.dm-tag-kat {
     display: inline-block;
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 13px;
     font-weight: 500;
-    background-color: #e0f2fe;
-    color: #0369a1;
 }
 
-.dm-tag-cat.dm-cat-makanan {
+.dm-kat-makanan {
     background-color: #fef3c7;
     color: #d97706;
+}
+
+.dm-kat-minuman {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.dm-kat-dessert {
+    background-color: #fce7f3;
+    color: #db2777;
+}
+
+.dm-kat-default {
+    background-color: #e5e7eb;
+    color: #4b5563;
 }
 
 .dm-btn-group {
@@ -1196,14 +1208,148 @@ footer {
     transform:scale(1.1);
 }
 
-/* INI RESPONSIVE*/
+/* DASHBOARD - status Cards */
+
+.dash-banner {
+    background: linear-gradient(135deg, #1b4332, #2d6a4f);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    color: #fff;
+}
+
+.dash-banner-text h2 {
+    margin: 0 0 6px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.dash-banner-text p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+.dash-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.dash-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    border-top: 4px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dash-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.dash-card-green  { border-top-color: #2d6a4f; }
+.dash-card-blue   { border-top-color: #3b82f6; }
+.dash-card-teal   { border-top-color: #0d9488; }
+.dash-card-yellow { border-top-color: #f59e0b; }
+
+.dash-card-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.dash-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dash-card-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1;
+}
+
+.dash-card-label {
+    font-size: 0.82rem;
+    color: #6b7280;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.dash-card-green  .dash-card-link:hover { color: #2d6a4f; }
+.dash-card-blue   .dash-card-link:hover { color: #3b82f6; }
+.dash-card-teal   .dash-card-link:hover { color: #0d9488; }
+.dash-card-yellow .dash-card-link:hover { color: #f59e0b; }
+
+@media (max-width: 900px) {
+    .dash-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.dash-bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.dash-table-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.dash-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.dash-table-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1b4332;
+    margin: 0;
+}
+
+.dash-table-header a {
+    font-size: 0.8rem;
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.dash-table-header a:hover { color: #1b4332; }
+
+.dash-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.dash-badge-green  { background: #dcfce7; color: #16a34a; }
+.dash-badge-yellow { background: #fef9c3; color: #ca8a04; }
+.dash-badge-red    { background: #fee2e2; color: #dc2626; }
+
+@media (max-width: 900px) {
+    .dash-bottom-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
     
     body {
         overflow-x: hidden;
     }
 
-    /* Navbar Utama */
     nav.navbar-utama {
         flex-direction: column;
         height: auto;
