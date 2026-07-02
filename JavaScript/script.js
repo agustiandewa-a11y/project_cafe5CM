@@ -2,9 +2,9 @@
     const prices={"Salted Caramel":25000,
       "Coffee 5cm":15000,
       "Matcha Latte":28000,
-       "5cm Lasagna":35000,
-       "Aglio O Elio":30000,
-       "Nasi Goreng Kampung":22000
+      "5cm Lasagna":35000,
+      "Aglio O Elio":30000,
+      "Nasi Goreng Kampung":22000
       };
 
   function scrollToMenu(element){
