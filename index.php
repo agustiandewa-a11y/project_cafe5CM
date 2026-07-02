@@ -99,7 +99,7 @@
     <div class="section-tentang">
     <h3>Tentang <span>5cm</span></h3>
         <p>Kami menyajikan berbagai pilihan kopi berkualitas, mulai dari espresso hingga kopi susu kekinian, yang diracik dengan penuh perhatian. Tidak hanya itu, kami juga menyediakan minuman non-kopi bagi kamu yang ingin menikmati suasana tanpa kafein.</p>
-          <br>    
+          <br>
             <p>Bagi kami, yang terpenting bukan hanya rasa kopi, tetapi juga suasana yang hangat, pelayanan yang ramah, dan momen yang tercipta di dalamnya.</p>
             <br>
             <p>Karena di sini, setiap cerita dimulai dari secangkir kopi.</p>
