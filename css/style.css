@@ -359,6 +359,11 @@ body.dm-layout-body .dm-top-navbar {
     border-bottom: 1px solid #efefef;
 }
 
+.dm-top-navbar, span{
+    color: #efefef;
+}
+
+
 body.dm-layout-body .dm-top-navbar h1 {
     margin: 0;
     font-size: 22px;
