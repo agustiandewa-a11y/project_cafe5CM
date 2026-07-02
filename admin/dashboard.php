@@ -52,6 +52,7 @@ $q_menu = mysqli_query($koneksi, "
             <a href="menu/index.php" class="dm-nav-item">Kelola Semua Menu</a>
             <a href="kategori/index.php" class="dm-nav-item">Kelola Kategori</a>
             <a href="reservasi/index.php" class="dm-nav-item">Kelola Reservasi</a>
+            <a href="galeri/index.php" class="dm-nav-item">Kelola Galeri</a>
             <a href="../logout.php" class="dm-nav-item">Logout</a>
         </nav>
     </div>
