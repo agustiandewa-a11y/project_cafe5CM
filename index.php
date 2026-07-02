@@ -31,11 +31,21 @@
 <section id="menu">
     <h2>Menu 5Cm</h2>
     <div class="filter-menu">
-        <a href="index.php#menu" class="filter-btn">Semua</a>
-        <a href="index.php?kategori=Makanan#menu" class="filter-btn">Makanan</a>
-        <a href="index.php?kategori=Minuman#menu" class="filter-btn">Minuman</a>
-        <a href="index.php?kategori=Snack#menu" class="filter-btn">Snack</a>
-    </div>
+    <a href="index.php#menu" class="filter-btn">Semua</a>
+
+    <?php
+    $ambil_kategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY kategori_id ASC");
+
+    while($kat = mysqli_fetch_assoc($ambil_kategori)) {
+    ?>
+        <a href="index.php?kategori=<?php echo $kat['nama_kategori']; ?>#menu" class="filter-btn">
+            <?php echo $kat['nama_kategori']; ?>
+        </a>
+    <?php
+    }
+    ?>
+</div>
+
     <div class="menu-grid">
     <?php
     $kategori = isset($_GET['kategori']) ? $_GET['kategori'] : '';

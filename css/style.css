@@ -736,7 +736,7 @@ body.dm-layout-body .dm-top-navbar h1 {
   /* Ini Hero */
 .hero {
     min-height: 110vh;
-    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('/Aset/bege2.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('../Aset/background_home.jpg') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -932,7 +932,7 @@ section {
 }
 
 .visi-misi {
-    background: url('Aset/bege3.jpeg') no-repeat center;
+    background: url('../Aset/background4.jpeg') no-repeat center;
     background-size: cover;
     height: 400px;
     position: relative;
@@ -1002,7 +1002,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px; /* Memberi jarak bawah sebelum form reservasi */
+    margin-bottom: 50px;
 }
 
 .kontak-info {
@@ -1056,9 +1056,7 @@ section {
     line-height: 1.5;
 }
 
-/* ==========================================================
-   UPDATE FORM RESERVASI: MELAR MEMENUHI HALAMAN & PROPORSIONAL
-   ========================================================== */
+/* RESERVASI */
 .reservasi-container {
     max-width: 1100px; /* Diperlebar menjadi 1100px agar memenuhi lebar halaman */
     width: 100%; 
