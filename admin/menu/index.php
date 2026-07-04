@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+include '../security.php';
 include "../../koneksi.php";
 
 
@@ -32,7 +32,8 @@ $query = mysqli_query($koneksi, "
             <a href="../dashboard.php" class="dm-nav-item">Dashboard</a>
             <a href="index.php" class="dm-nav-item dm-item-active">Kelola Menu</a>
             <a href="../kategori/index.php" class="dm-nav-item"> Kelola Kategori</a>
-            <a href="../../logout.php" class="dm-nav-item">Logout</a>
+            <a href="../galeri/index.php" class="dm-nav-item">Kelola Galeri</a>
+            <a href="../reservasi/index.php" class="dm-nav-item">Kelola Reservasi</a>
         </nav>
     </div>
 

@@ -1342,7 +1342,40 @@ footer {
 .dash-badge-green  { background: #dcfce7; color: #16a34a; }
 .dash-badge-yellow { background: #fef9c3; color: #ca8a04; }
 .dash-badge-red    { background: #fee2e2; color: #dc2626; }
+.dm-kat-confirmed {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #dcfce7;
+    color: #16a34a;
+}
 
+.dm-kat-cancelled {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.dm-kat-pending {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #fef9c3;
+    color: #ca8a04;
+}
+.dm-txt-date {
+    color: #111827;
+    font-weight: 500;
+    font-size: 0.9em;
+}
 @media (max-width: 900px) {
     .dash-bottom-grid { grid-template-columns: 1fr; }
 }
@@ -1517,7 +1550,7 @@ footer {
     .box-visi, .box-misi {
         width: 100%;
         min-height: auto;
-    }
+    } 
 
     /* Kontak */
     .kontak-info {

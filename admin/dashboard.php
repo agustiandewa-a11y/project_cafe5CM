@@ -1,6 +1,6 @@
 <?php
-session_start();
 
+session_start();
 if (!isset($_SESSION['admin_id'])) {
     header("Location: ../login.php");
     exit();
@@ -10,12 +10,10 @@ include '../koneksi.php';
 
 $username = htmlspecialchars($_SESSION['username'] ?? 'Admin');
 
-
 $total_menu        = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS total FROM menu"))['total'];
 $total_kategori    = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS total FROM kategori"))['total'];
 $total_reservasi   = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS total FROM reservasi"))['total'];
 $reservasi_pending = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) AS total FROM reservasi WHERE status = 'pending'"))['total'];
-
 
 $q_reservasi = mysqli_query($koneksi, "
     SELECT r.*, a.username AS nama_admin
@@ -24,7 +22,6 @@ $q_reservasi = mysqli_query($koneksi, "
     ORDER BY r.tanggal_input DESC
     LIMIT 5
 ");
-
 
 $q_menu = mysqli_query($koneksi, "
     SELECT m.*, k.nama_kategori
@@ -49,11 +46,11 @@ $q_menu = mysqli_query($koneksi, "
         <div class="dm-logo-text">5CM</div>
         <nav class="dm-navigation">
             <a href="dashboard.php" class="dm-nav-item dm-item-active">Dashboard</a>
-            <a href="menu/index.php" class="dm-nav-item">Kelola Semua Menu</a>
+            <a href="menu/index.php" class="dm-nav-item">Kelola Menu</a>
             <a href="kategori/index.php" class="dm-nav-item">Kelola Kategori</a>
-            <a href="reservasi/index.php" class="dm-nav-item">Kelola Reservasi</a>
             <a href="galeri/index.php" class="dm-nav-item">Kelola Galeri</a>
-            <a href="../logout.php" class="dm-nav-item">Logout</a>
+            <a href="reservasi/index.php" class="dm-nav-item">Kelola Reservasi</a>
+            <a href="logout.php" class="dm-nav-item">Logout</a>
         </nav>
     </div>
 
@@ -65,15 +62,15 @@ $q_menu = mysqli_query($koneksi, "
 
         <div class="dm-content-page">
 
-            
+            <!-- BANNER -->
             <div class="dash-banner">
                 <div class="dash-banner-text">
                     <h2>Halo, <?= $username ?>! 👋</h2>
-                    <p>ringkasan data <strong>Restoran 5CM</strong> hari ini.</p>
+                    <p>Ringkasan data <strong>Restoran 5CM</strong> hari ini.</p>
                 </div>
             </div>
 
-            
+            <!-- STAT CARDS -->
             <div class="dash-stats-grid">
                 <div class="dash-card dash-card-green">
                     <div class="dash-card-icon">🍽️</div>
@@ -104,8 +101,11 @@ $q_menu = mysqli_query($koneksi, "
                     </div>
                 </div>
             </div>
+
+            <!-- TABEL BAWAH -->
             <div class="dash-bottom-grid">
 
+                <!-- RESERVASI TERBARU -->
                 <div class="dash-table-card">
                     <div class="dash-table-header">
                         <h3>Reservasi Terbaru</h3>
@@ -117,6 +117,7 @@ $q_menu = mysqli_query($koneksi, "
                                 <th>Nama</th>
                                 <th>Tanggal</th>
                                 <th>Status</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -131,61 +132,71 @@ $q_menu = mysqli_query($koneksi, "
                             <tr>
                                 <td><?= htmlspecialchars($r['nama_customer']) ?></td>
                                 <td><?= date('d M Y', strtotime($r['tanggal_reservasi'])) ?></td>
-                                <td><span class="dash-badge <?= $status_class ?>"><?= ucfirst($r['status']) ?></span></td>
+                                <td>
+                                    <span class="dash-badge <?= $status_class ?>">
+                                        <?= ucfirst($r['status']) ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="reservasi/edit.php?id=<?= $r['reservasi_id'] ?>"
+                                       class="dm-action-link dm-lnk-edit">Edit</a>
+                                </td>
                             </tr>
                         <?php endwhile; else: ?>
-                            <tr><td colspan="3" style="text-align:center;color:#9ca3af;">Belum ada reservasi.</td></tr>
+                            <tr>
+                                <td colspan="4" style="text-align:center;color:#9ca3af;">
+                                    Belum ada reservasi.
+                                </td>
+                            </tr>
                         <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
+
+                <!-- MENU TERBARU -->
                 <div class="dash-table-card">
                     <div class="dash-table-header">
                         <h3>Menu Terbaru</h3>
                         <a href="menu/index.php">Lihat Semua →</a>
-            </div>
-                <table class="dm-table-premium">
-                    <thead>
-                        <tr>
-                            <th>Nama Menu</th>
-                            <th>Kategori</th>
-                            <th>Harga</th>
+                    </div>
+                    <table class="dm-table-premium">
+                        <thead>
+                            <tr>
+                                <th>Nama Menu</th>
+                                <th>Kategori</th>
+                                <th>Harga</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php
-                            if (mysqli_num_rows($q_menu) > 0):
-                                while ($m = mysqli_fetch_assoc($q_menu)):
-                                    $kat = htmlspecialchars($m['nama_kategori'] ?? '-');
-                                    $badge_class = "dm-tag-kat";
-                                    switch (strtolower($kat)) {
-                            case "makanan":
-                                $badge_class .= " dm-kat-makanan";
-                                break;
-                            case "minuman":
-                                $badge_class .= " dm-kat-minuman";
-                                break;
-                            case "dessert":
-                                $badge_class .= " dm-kat-dessert";
-                                break;
-                            default:
-                                $badge_class .= " dm-kat-default";
-                                break;
-                        }
-                ?>
-                        <tr>
-                            <td><?= htmlspecialchars($m['nama_menu']) ?></td>
-                            <td><span class="<?= $badge_class ?>"><?= $kat ?></span></td>
-                            <td>Rp <?= number_format($m['harga'], 0, ',', '.') ?></td>
-                        </tr>
-                    <?php endwhile; else: ?>
-                        <tr><td colspan="3" style="text-align:center;color:#9ca3af;">Belum ada menu.</td></tr>
-                    <?php endif; ?>
-                </tbody>
-            </table>
-        </div>
+                        <?php if (mysqli_num_rows($q_menu) > 0):
+                            while ($m = mysqli_fetch_assoc($q_menu)):
+                                $kat = htmlspecialchars($m['nama_kategori'] ?? '-');
+                                $badge_class = "dm-tag-kat";
+                                switch (strtolower($kat)) {
+                                    case "makanan": $badge_class .= " dm-kat-makanan"; break;
+                                    case "minuman": $badge_class .= " dm-kat-minuman"; break;
+                                    case "dessert": $badge_class .= " dm-kat-dessert"; break;
+                                    default:        $badge_class .= " dm-kat-default";  break;
+                                }
+                        ?>
+                            <tr>
+                                <td><?= htmlspecialchars($m['nama_menu']) ?></td>
+                                <td><span class="<?= $badge_class ?>"><?= $kat ?></span></td>
+                                <td>Rp <?= number_format($m['harga'], 0, ',', '.') ?></td>
+                            </tr>
+                        <?php endwhile; else: ?>
+                            <tr>
+                                <td colspan="3" style="text-align:center;color:#9ca3af;">
+                                    Belum ada menu.
+                                </td>
+                            </tr>
+                        <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
 
-        </div>
+            </div>
+            <!-- END TABEL BAWAH -->
 
         </div>
     </div>

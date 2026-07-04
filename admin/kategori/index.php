@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+include '../security.php';
 include "../../koneksi.php";
 
 if (!isset($_SESSION['admin_id'])) {
@@ -7,7 +7,6 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
-// JOIN ke tabel admin untuk menampilkan nama admin yang terakhir mengubah kategori
 $query = mysqli_query($koneksi, "
     SELECT kategori.*, admin.username AS nama_admin 
     FROM kategori 
@@ -32,7 +31,8 @@ $query = mysqli_query($koneksi, "
             <a href="../dashboard.php" class="dm-nav-item">Dashboard</a>
             <a href="../menu/index.php" class="dm-nav-item">Kelola Menu</a>
             <a href="index.php" class="dm-nav-item dm-item-active">Kelola Kategori</a>
-            <a href="../../logout.php" class="dm-nav-item">Logout</a>
+            <a href="../galeri/index.php" class="dm-nav-item">Kelola Galeri</a>
+            <a href="../reservasi/index.php" class="dm-nav-item">Kelola Reservasi</a>
         </nav>
     </div>
 

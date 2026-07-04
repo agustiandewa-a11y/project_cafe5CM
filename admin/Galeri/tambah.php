@@ -1,161 +1,89 @@
 <?php
 session_start();
-include "../../koneksi.php";
+include '../../koneksi.php';
 
-/* ==========================
-   Cek Login Admin
-========================== */
 if (!isset($_SESSION['admin_id'])) {
     header("Location: ../../login.php");
     exit();
 }
 
-/* ==========================
-   Proses Upload
-========================== */
 
-if (isset($_POST['simpan'])) {
+if (isset($_POST['submit'])) {
+    $admin_id    = intval($_SESSION['admin_id']);
+    $nama_gambar = $_FILES['gambar']['name'];
+    $tmp_name    = $_FILES['gambar']['tmp_name'];
+    $target_dir  = "../../Aset/" . $nama_gambar;
 
-    $admin_id = $_SESSION['admin_id'];
+    
+    $allowed = ['jpg', 'jpeg', 'png', 'webp'];
+    $ext     = strtolower(pathinfo($nama_gambar, PATHINFO_EXTENSION));
 
-    $namaFile = $_FILES['gambar']['name'];
-    $tmpFile = $_FILES['gambar']['tmp_name'];
+    if (!in_array($ext, $allowed)) {
+        $error = "Format file tidak didukung. Gunakan JPG, PNG, atau WEBP.";
+    } elseif (move_uploaded_file($tmp_name, $target_dir)) {
+        $stmt = $koneksi->prepare("INSERT INTO galeri (admin_id, nama_gambar) VALUES (?, ?)");
+        $stmt->bind_param("is", $admin_id, $nama_gambar);
 
-    if ($namaFile != "") {
-
-        move_uploaded_file(
-            $tmpFile,
-            "../../Aset/" . $namaFile
-        );
-
-        mysqli_query($koneksi, "
-            INSERT INTO galeri(admin_id,nama_gambar)
-            VALUES('$admin_id','$namaFile')
-        ");
-
-        header("Location:index.php");
-        exit();
-
+        if ($stmt->execute()) {
+            header("Location: index.php?pesan=tambah_sukses");
+            exit();
+        } else {
+            $error = "Gagal menyimpan ke database: " . htmlspecialchars($koneksi->error);
+        }
+        $stmt->close();
     } else {
-
-        echo "<script>alert('Silahkan pilih gambar terlebih dahulu!');</script>";
-
+        $error = "Gagal mengupload gambar. Periksa hak akses folder Aset.";
     }
-
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Tambah Galeri</title>
-
+    <title>Tambah Gambar - 5CM Cafe</title>
     <link rel="stylesheet" href="../../css/style.css">
-
 </head>
-
 <body class="dm-layout-body">
 
     <div class="dm-sidebar-wrapper">
-
-        <div class="dm-logo-text">
-            5CM
-        </div>
-
+        <div class="dm-logo-text">5CM</div>
         <nav class="dm-navigation">
-
-            <a href="../dashboard.php" class="dm-nav-item">
-                Dashboard
-            </a>
-
-            <a href="../menu/index.php" class="dm-nav-item">
-                Kelola Menu
-            </a>
-
-            <a href="../kategori/index.php" class="dm-nav-item">
-                Kelola Kategori
-            </a>
-
-            <a href="index.php" class="dm-nav-item dm-item-active">
-                Kelola Galeri
-            </a>
-
-            <a href="../../logout.php" class="dm-nav-item">
-                Logout
-            </a>
-
+            <a href="../dashboard.php" class="dm-nav-item">Dashboard</a>
+            <a href="../menu/index.php" class="dm-nav-item">Kelola Menu</a>
+            <a href="../kategori/index.php" class="dm-nav-item">Kelola Kategori</a>
+            <a href="index.php" class="dm-nav-item dm-item-active">Kelola Galeri</a>
+            <a href="../reservasi/index.php" class="dm-nav-item">Kelola Reservasi</a>
+            <a href="../../logout.php" class="dm-nav-item">Logout</a>
         </nav>
-
     </div>
 
-
     <div class="dm-main-container">
-
         <div class="dm-top-navbar">
-
-            <h1>Tambah Galeri</h1>
-
+            <h1>Tambah Gambar</h1>
         </div>
 
         <div class="dm-content-page">
-
             <div class="dm-card-table">
+                <div class="dm-header-action">
+                    <h2>Form Upload Gambar</h2>
+                    <a href="index.php" class="dm-btn-add">← Kembali</a>
+                </div>
 
-                <form method="POST" enctype="multipart/form-data">
+                <?php if (isset($error)): ?>
+                    <p style="color:red;margin-bottom:16px;"><?= $error ?></p>
+                <?php endif; ?>
 
-                    <table>
-
-                        <tr>
-
-                            <td>Pilih Gambar</td>
-
-                            <td>
-
-                                <input type="file" name="gambar" accept="image/*" required>
-
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td></td>
-
-                            <td>
-
-                                <br>
-
-                                <button type="submit" name="simpan" class="dm-btn-add">
-
-                                    Simpan
-
-                                </button>
-
-                                <a href="index.php" class="dm-action-link dm-lnk-delete">
-
-                                    Batal
-
-                                </a>
-
-                            </td>
-
-                        </tr>
-
-                    </table>
-
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Pilih Gambar (JPG, PNG, WEBP)</label>
+                        <input type="file" name="gambar" accept="image/*" required>
+                    </div>
+                    <button type="submit" name="submit" class="btn-submit">Upload Gambar</button>
                 </form>
-
             </div>
-
         </div>
-
     </div>
 
 </body>
-
 </html>

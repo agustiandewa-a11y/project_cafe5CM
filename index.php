@@ -206,8 +206,8 @@
         <!-- BARIS 2: Tanggal & Jumlah Pelanggan -->
         <div class="reservasi-row">
             <div class="reservasi-group">
-                <label for="tanggal">Tanggal Reservasi</label>
-                <input type="date" id="tanggal" name="tanggal" required>
+                <label for="tanggal">Tanggal & Jam Reservasi</label>
+                <input type="datetime-local" id="tanggal" name="tanggal" required>
             </div>
             <div class="reservasi-group">
                 <label for="jumlah_pelanggan">Jumlah Pelanggan</label>
