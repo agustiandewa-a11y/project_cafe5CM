@@ -1352,16 +1352,6 @@ footer {
     color: #16a34a;
 }
 
-.dm-kat-cancelled {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
-    background-color: #fee2e2;
-    color: #dc2626;
-}
-
 .dm-kat-pending {
     display: inline-block;
     padding: 6px 16px;
