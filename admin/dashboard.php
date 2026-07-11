@@ -62,7 +62,7 @@ $q_menu = mysqli_query($koneksi, "
 
         <div class="dm-content-page">
 
-            <!-- BANNER -->
+            <!-- inik banner -->
             <div class="dash-banner">
                 <div class="dash-banner-text">
                     <h2>Halo, <?= $username ?>! 👋</h2>
@@ -70,7 +70,7 @@ $q_menu = mysqli_query($koneksi, "
                 </div>
             </div>
 
-            <!-- STAT CARDS -->
+            <!-- ini cards -->
             <div class="dash-stats-grid">
                 <div class="dash-card dash-card-green">
                     <div class="dash-card-icon">🍽️</div>
@@ -102,10 +102,9 @@ $q_menu = mysqli_query($koneksi, "
                 </div>
             </div>
 
-            <!-- TABEL BAWAH -->
+            <!-- ini div tabel bawah -->
             <div class="dash-bottom-grid">
 
-                <!-- RESERVASI TERBARU -->
                 <div class="dash-table-card">
                     <div class="dash-table-header">
                         <h3>Reservasi Terbaru</h3>
@@ -153,7 +152,7 @@ $q_menu = mysqli_query($koneksi, "
                     </table>
                 </div>
 
-                <!-- MENU TERBARU -->
+                <!-- ini untuk menu terbaru -->
                 <div class="dash-table-card">
                     <div class="dash-table-header">
                         <h3>Menu Terbaru</h3>
@@ -196,7 +195,6 @@ $q_menu = mysqli_query($koneksi, "
                 </div>
 
             </div>
-            <!-- END TABEL BAWAH -->
 
         </div>
     </div>

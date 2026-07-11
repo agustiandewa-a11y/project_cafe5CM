@@ -6,11 +6,24 @@
     font-family:'Poppins',sans-serif
   }
 
-body.dashboard-page {
-    margin: 0;
-    background: #f5f5f5;
-    color: #333;
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    /* Kita set 100px karena di baris 21 tinggi navbar kamu adalah 100px */
+    scroll-margin-top: 100px; 
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(12px); /* Memberikan efek sedikit meluncur naik dari bawah */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
   /* Navbar */
@@ -20,7 +33,6 @@ nav.navbar-utama {
     align-items: center;
     height: 100px;
     padding: 0 50px; 
-    scroll-behavior: smooth;   
     background: linear-gradient(90deg, #1b4332, #40916c);
     color: white;
     position: sticky;
@@ -191,102 +203,59 @@ body.login-page{
     transform:translateY(-5px);
 }
 
-/* form dashboard */
-body.dashboard-page {
-    margin: 0;
-    padding: 0;
-    background-color: #f4f6f9;
-    display: flex;
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
-}
-
-/* --- ini sidebar kiri yee --- */
-body.dashboard-page .sidebar {
-    width: 260px;
-    background-color: #ffffff;
-    border-right: 1px solid #e0e0e0;
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    height: 100vh;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.02);
-}
-
-/* itok 5CM nye */
-body.dashboard-page .sidebar h2 {
-    font-size: 50px;
-    letter-spacing: 2px;
-    color: #1b4332;
-    font-weight: 600;
-    margin-bottom: 40px;
-    text-align: left;
-    padding-left: 10px;
-}
-
-body.dashboard-page .sidebar nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* itok tombol linknye */
-body.dashboard-page .sidebar nav ul li a {
-    display: block;
-    text-decoration: none;
-    font-size: 16px;
-    color: #555555;
-    font-weight: 500;
-    padding: 10px 12px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-}
-
-/* Efek Hover */
-body.dashboard-page .sidebar nav ul li a:hover {
-    background-color: #f0f4f8;
-    color: #000000;
-}
-
-
-/* --- AREA KONTEN KANAN --- */
-body.dashboard-page .main-content {
-    margin-left: 260px;
-    flex: 1;
-    min-height: 100vh;min-height: 100vh;
-}
-
-/* itok tempat tulisan Dashboard */
-body.dashboard-page .top-bar {
-    background-color: #ffffff;
-    padding: 40px 40px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-body.dashboard-page .top-bar h1 {
-    font-size: 30px;
-    color: #333333;
-    font-weight: 500;
-    margin: 0;
-}
-
-/* pun itok area putih yang masih kosong i */
-body.dashboard-page .content-body {
-    padding: 40px;
-    flex: 1;
-}
-
-/* INI DATA MENU YEEE */
+/* ini kode seluruh layout dashboard, menu, kategori, galeri, dan reservasi */
 body.dm-layout-body {
     margin: 0;
     padding: 0;
     background-color: #f4f6f9;
     display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+body.dm-layout-body .dm-main-container {
+    margin-left: 260px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+body.dm-layout-body .dm-top-navbar {
+    background-color: #1b4332;
+    padding: 20px 40px;
+    border-bottom: 1px solid #efefef;
+}
+
+.dm-top-navbar, .dm-top-navbar span {
+    color: #efefef;
+}
+
+body.dm-layout-body .dm-top-navbar h1 {
+    margin: 0;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.dm-content-page {
+    padding: 30px;
+}
+
+.dm-header-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.dm-header-action h2 {
+    color: #1b4332;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
 
 /* ini Sidebar nya */
 body.dm-layout-body .dm-sidebar-wrapper {
@@ -343,53 +312,8 @@ body.dm-layout-body .dm-nav-item:hover:not(.dm-item-active) {
     color: #1b4332;
 }
 
-/* Layout Konten Sebelah Kanan */
-body.dm-layout-body .dm-main-container {
-    margin-left: 260px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    box-sizing: border-box;
-}
 
-body.dm-layout-body .dm-top-navbar {
-    background-color: #1b4332;
-    padding: 20px 40px;
-    border-bottom: 1px solid #efefef;
-}
-
-.dm-top-navbar, span{
-    color: #efefef;
-}
-
-
-body.dm-layout-body .dm-top-navbar h1 {
-    margin: 0;
-    font-size: 22px;
-    color: #fff;
-    font-weight: 700;
-}
-
-/* Konten Dalam Page */
-.dm-content-page {
-    padding: 30px;
-}
-
-.dm-header-action {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
-.dm-header-action h2 {
-    color: #1b4332;
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0;
-}
-
+/* ini komponen tabel dan tombol aksi yee */
 .dm-btn-add {
     background-color: #1b4332;
     color: #ffffff;
@@ -446,51 +370,6 @@ body.dm-layout-body .dm-top-navbar h1 {
     background-color: #fafafa;
 }
 
-.dm-img-thumb {
-    width: 70px;
-    height: 85px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.dm-txt-name {
-    color: #1f2937;
-    font-weight: 600;
-}
-
-.dm-txt-price {
-    font-weight: 600;
-    color: #111827;
-}
-.dm-tag-kat {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
-}
-
-.dm-kat-makanan {
-    background-color: #fef3c7;
-    color: #d97706;
-}
-
-.dm-kat-minuman {
-    background-color: #dbeafe;
-    color: #2563eb;
-}
-
-.dm-kat-dessert {
-    background-color: #fce7f3;
-    color: #db2777;
-}
-
-.dm-kat-default {
-    background-color: #e5e7eb;
-    color: #4b5563;
-}
-
 .dm-btn-group {
     display: flex;
     gap: 8px;
@@ -522,9 +401,259 @@ body.dm-layout-body .dm-top-navbar h1 {
     background-color: #ef4444;
     color: #ffffff;
 }
+
+.dm-txt-name {
+    color: #1f2937;
+    font-weight: 600;
+}
+
 .dm-txt-admin {
-    font-weight: 600px;
+    font-weight: 600;
     color: #e67e22;
+}
+
+/* ini css khusus dashboard */
+.dash-banner {
+    background: linear-gradient(135deg, #1b4332, #2d6a4f);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    color: #fff;
+}
+
+.dash-banner-text h2 {
+    margin: 0 0 6px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.dash-banner-text p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+.dash-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.dash-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    border-top: 4px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dash-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.dash-card-green  { border-top-color: #2d6a4f; }
+.dash-card-blue   { border-top-color: #3b82f6; }
+.dash-card-teal   { border-top-color: #0d9488; }
+.dash-card-yellow { border-top-color: #f59e0b; }
+
+.dash-card-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.dash-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dash-card-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1;
+}
+
+.dash-card-label {
+    font-size: 0.82rem;
+    color: #6b7280;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.dash-card-green  .dash-card-link:hover { color: #2d6a4f; }
+.dash-card-blue   .dash-card-link:hover { color: #3b82f6; }
+.dash-card-teal   .dash-card-link:hover { color: #0d9488; }
+.dash-card-yellow .dash-card-link:hover { color: #f59e0b; }
+
+@media (max-width: 900px) {
+    .dash-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.dash-bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.dash-table-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.dash-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.dash-table-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1b4332;
+    margin: 0;
+}
+
+.dash-table-header a {
+    font-size: 0.8rem;
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.dash-table-header a:hover { color: #1b4332; }
+
+.dash-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.dash-badge-green  { background: #dcfce7; color: #16a34a; }
+.dash-badge-yellow { background: #fef9c3; color: #ca8a04; }
+.dm-kat-confirmed {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.dm-kat-pending {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #fef9c3;
+    color: #ca8a04;
+}
+.dm-txt-date {
+    color: #111827;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+
+/* ini CSS khusus galeri */
+.dm-img-thumb {
+    width: 70px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ini CSS khusus Menu */
+.dm-txt-price {
+    font-weight: 600;
+    color: #111827;
+}
+
+.dm-tag-kat {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.dm-kat-makanan {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.dm-kat-minuman {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.dm-kat-dessert {
+    background-color: #fce7f3;
+    color: #db2777;
+}
+
+.dm-kat-default {
+    background-color: #e5e7eb;
+    color: #4b5563;
+}
+
+
+/* ini CSS khusus reservasi */
+.dm-kat-confirmed {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.dm-kat-pending {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #ffedd5;
+    color: #9a3412;
+}
+
+.dm-alert {
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.dm-alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.dm-txt-date {
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.dm-txt-muted {
+    color: #9ca3af;
+    font-style: italic;
 }
 
 /* BAGIAN EDIT INI WOI */
@@ -857,7 +986,7 @@ section {
     font-weight:600;
 }
 
-/*style tentang*/
+/* INI STYLE TENTANG */
 .section-tentang {
     padding: 20px;
     margin: 0 auto;
@@ -938,7 +1067,6 @@ section {
     position: relative;
 }
 
-/* OVERLAY FLEX */
 .overlay {
     display: flex;
     justify-content: center;
@@ -1082,7 +1210,7 @@ section {
 .reservasi-row {
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    gap: 25px; /* Jarak antar input kolom kiri dan kanan sedikit diperlebar */
+    gap: 25px;
 }
 
 .reservasi-group {
@@ -1134,22 +1262,6 @@ section {
 
 .btn-reservasi:hover {
     background-color: #166534;
-}
-
-/* responsive untuk Tablet dan HP */
-@media (max-width: 768px) {
-    .reservasi-container {
-        margin: 20px 0;
-        padding: 25px 20px;
-    }
-    .reservasi-row {
-        grid-template-columns: 1fr; /* Kolom jadi vertikal kembali pas di layar HP */
-        gap: 0;
-    }   
-    .kontak-info {
-        grid-template-columns: 1fr; /* Kartu info juga vertikal di HP */
-        gap: 20px;
-    }
 }
 
 /*lokasi */
@@ -1211,161 +1323,23 @@ footer {
     transform:scale(1.1);
 }
 
-/* DASHBOARD - status Cards */
-
-.dash-banner {
-    background: linear-gradient(135deg, #1b4332, #2d6a4f);
-    border-radius: 14px;
-    padding: 28px 32px;
-    margin-bottom: 28px;
-    color: #fff;
+/* responsive untuk Tablet dan HP */
+@media (max-width: 768px) {
+    .reservasi-container {
+        margin: 20px 0;
+        padding: 25px 20px;
+    }
+    .reservasi-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }   
+    .kontak-info {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
-.dash-banner-text h2 {
-    margin: 0 0 6px 0;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.dash-banner-text p {
-    margin: 0;
-    font-size: 0.95rem;
-    opacity: 0.85;
-}
-
-.dash-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.dash-card {
-    background: #fff;
-    border-radius: 14px;
-    padding: 24px 20px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-    border-top: 4px solid transparent;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.dash-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-}
-
-.dash-card-green  { border-top-color: #2d6a4f; }
-.dash-card-blue   { border-top-color: #3b82f6; }
-.dash-card-teal   { border-top-color: #0d9488; }
-.dash-card-yellow { border-top-color: #f59e0b; }
-
-.dash-card-icon {
-    font-size: 2rem;
-    line-height: 1;
-}
-
-.dash-card-info {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.dash-card-number {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: #111827;
-    line-height: 1;
-}
-
-.dash-card-label {
-    font-size: 0.82rem;
-    color: #6b7280;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-}
-
-.dash-card-green  .dash-card-link:hover { color: #2d6a4f; }
-.dash-card-blue   .dash-card-link:hover { color: #3b82f6; }
-.dash-card-teal   .dash-card-link:hover { color: #0d9488; }
-.dash-card-yellow .dash-card-link:hover { color: #f59e0b; }
-
-@media (max-width: 900px) {
-    .dash-stats-grid { grid-template-columns: repeat(2, 1fr); }
-}
-.dash-bottom-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 24px;
-}
-
-.dash-table-card {
-    background: #fff;
-    border-radius: 14px;
-    padding: 24px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-}
-
-.dash-table-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.dash-table-header h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #1b4332;
-    margin: 0;
-}
-
-.dash-table-header a {
-    font-size: 0.8rem;
-    color: #6b7280;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.dash-table-header a:hover { color: #1b4332; }
-
-.dash-badge {
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.dash-badge-green  { background: #dcfce7; color: #16a34a; }
-.dash-badge-yellow { background: #fef9c3; color: #ca8a04; }
-.dash-badge-red    { background: #fee2e2; color: #dc2626; }
-.dm-kat-confirmed {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
-    background-color: #dcfce7;
-    color: #16a34a;
-}
-
-.dm-kat-pending {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
-    background-color: #fef9c3;
-    color: #ca8a04;
-}
-.dm-txt-date {
-    color: #111827;
-    font-weight: 500;
-    font-size: 0.9em;
-}
+/* responsive halaman utama */
 @media (max-width: 900px) {
     .dash-bottom-grid { grid-template-columns: 1fr; }
 }

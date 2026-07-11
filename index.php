@@ -138,14 +138,14 @@
     </section>
 
 
-<!-- kontak -->
+<!-- Kontak -->
 <section id="kontak" class="kontak-modern">
   <div class="kontak-header">
     <h2>KONTAK</h2>
     <p>Punya pertanyaan, kritik, atau ingin reservasi? Yuk mampir atau hubungi kami!</p>
   </div>
 
-  <!-- Area Kontak Info (WA, IG, Lokasi) -->
+  <!-- Area kontak (WA, IG, Lokasi) -->
   <div class="kontak-grid-modern">
     <div class="kontak-info">
       
@@ -180,10 +180,10 @@
           <p>Username: 5cmcoffee</p>
         </div>
       </div>
-
-    </div> <!-- </kontak-info> DI SINI BATAS AKHIR KOTAK 4 KARTU -->
+    </div>
   </div>
 
+  <!-- Tabel reservasi -->
 <div class="reservasi-container">
     <div class="reservasi-header">
         <h2>Form Registrasi</h2>
@@ -191,7 +191,6 @@
 
     <form action="proses_reservasi.php" method="POST">
         
-        <!-- BARIS 1: Nama & No Telepon -->
         <div class="reservasi-row">
             <div class="reservasi-group">
                 <label for="nama_lengkap">Nama Lengkap</label>
@@ -203,7 +202,6 @@
             </div>
         </div>
 
-        <!-- BARIS 2: Tanggal & Jumlah Pelanggan -->
         <div class="reservasi-row">
             <div class="reservasi-group">
                 <label for="tanggal">Tanggal & Jam Reservasi</label>
@@ -215,7 +213,6 @@
             </div>
         </div>
 
-        <!-- BARIS 4: Catatan -->
         <div class="reservasi-group">
             <label for="catatan">Catatan (Opsional)</label>
             <textarea id="catatan" name="catatan" rows="4" placeholder="Tulis catatan atau permintaan khusus..."></textarea>
@@ -243,13 +240,13 @@
       </section>
 
       
-<!--INI CART-->
+<!--Ini cart-->
 <div class="cart" onclick="showCart()">🛒 Cart (<span id="cartCount">0</span>)</div>
 <div id="totalHarga">Total: Rp 0</div>
 <div id="backTop" onclick="scrollToTop()">⬆ Top</div>
 
 
-<!-- INI FOOTER -->
+<!-- Ini footer -->
 <footer>
   <p>© 2026 5Cm Cafe</p>
 </footer>

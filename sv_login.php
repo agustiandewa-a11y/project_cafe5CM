@@ -1,5 +1,5 @@
 <?php
-// code php yang akan dimplementasikan menggunakan Prepared Statement
+
 include "koneksi.php"; 
 session_start();
 
