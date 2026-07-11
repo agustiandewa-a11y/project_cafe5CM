@@ -83,11 +83,13 @@ $query = mysqli_query($koneksi, "
                                 <span class="dm-txt-admin"><?= htmlspecialchars($data['nama_admin'] ?? '-') ?></span>
                             </td>
                             <td style="text-align:center">
-                                <div class="dm-btn-group">
-                                    <a href="hapus.php?id=<?= $data['gambar_id'] ?>"
-                                       class="dm-action-link dm-lnk-delete"
-                                       onclick="return confirm('Yakin hapus gambar ini?')">Hapus</a>
-                                </div>
+                        <div class="dm-btn-group">
+                            <a href="edit.php?id=<?= $data['gambar_id'] ?>"
+                                class="dm-action-link dm-lnk-edit">Edit</a>
+                            <a href="hapus.php?id=<?= $data['gambar_id'] ?>"
+                                class="dm-action-link dm-lnk-delete"
+                            onclick="return confirm('Yakin hapus gambar ini?')">Hapus</a>
+                        </div>
                             </td>
                         </tr>
                     <?php endwhile; ?>

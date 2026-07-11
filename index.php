@@ -76,13 +76,13 @@
                     Rp <?php echo number_format($data['harga'],0,',','.'); ?>
                 </p>
                 <button class="btn"
-                    onclick="addToCart('<?php echo $data['nama_menu']; ?>')">
-                    +
-                </button>
-                <button class="btn"
-                    onclick="decreaseItem('<?php echo $data['nama_menu']; ?>')">
-                    -
-                </button>
+                  onclick="addToCart('<?php echo $data['nama_menu']; ?>', <?php echo $data['harga']; ?>)">
+                +
+            </button>
+            <button class="btn"
+                onclick="decreaseItem('<?php echo $data['nama_menu']; ?>')">
+                -
+            </button>
             </div>
         </div>
     <?php
@@ -254,6 +254,6 @@
   <p>© 2026 5Cm Cafe</p>
 </footer>
 
-     <script src="js/script.js"></script>
+<script src="/project_cafe5CM/JavaScript/script.js"></script>
   </body>
 </html>
