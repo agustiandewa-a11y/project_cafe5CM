@@ -210,6 +210,7 @@ body.dm-layout-body {
     background-color: #f4f6f9;
     display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: blurFadePage 0.4s ease-in-out;
 }
 
 body.dm-layout-body .dm-main-container {
