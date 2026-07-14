@@ -28,7 +28,7 @@ if(isset($_POST['submit_login'])) {
 
             mysqli_stmt_close($stmt);
 
-            header("Location: admin/dashboard.php");
+            header("Location: admin_cafe5CM/dashboard.php");
             exit;
         } else {
             mysqli_stmt_close($stmt);
