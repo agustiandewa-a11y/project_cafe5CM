@@ -34,6 +34,7 @@ $query = mysqli_query($koneksi, "
             <a href="../kategori/index.php" class="dm-nav-item"> Kelola Kategori</a>
             <a href="../galeri/index.php" class="dm-nav-item">Kelola Galeri</a>
             <a href="../reservasi/index.php" class="dm-nav-item">Kelola Reservasi</a>
+            <a href="../admin/index.php" class="dm-nav-item">Kelola Akun Admin</a>
         </nav>
     </div>
 
