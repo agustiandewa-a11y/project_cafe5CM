@@ -14,7 +14,6 @@ if (!isset($_GET['id'])) {
 
 $id = intval($_GET['id']);
 
-// Ambil nama file sebelum dihapus dari DB
 $stmt_get = $koneksi->prepare("SELECT nama_gambar FROM galeri WHERE gambar_id = ?");
 $stmt_get->bind_param("i", $id);
 $stmt_get->execute();
@@ -28,7 +27,6 @@ if ($result) {
         unlink($path_file);
     }
 
-    // Hapus record dari database
     $stmt = $koneksi->prepare("DELETE FROM galeri WHERE gambar_id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();

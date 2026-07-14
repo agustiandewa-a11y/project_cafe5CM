@@ -21,18 +21,15 @@ if (!$data) {
 }
 
 if (isset($_POST['submit'])) {
-    // 1. Ambil data mentah tanpa mengubah strukturnya terlebih dahulu
     $nama_customer   = trim($_POST['nama_customer']);
     $no_hp           = trim($_POST['no_hp']);
     
-    // 2. PERBAIKAN FATAL: Konversi paksa waktu dari HTML (T) ke format standar MySQL
     $tanggal_mentah  = $_POST['tanggal_reservasi'];
     $tanggal         = date('Y-m-d H:i:s', strtotime($tanggal_mentah));
     
     $jumlah_customer = intval($_POST['jumlah_customer']);
     $status          = $_POST['status'];
     
-    // 3. PERBAIKAN LOGIKA CATATAN: Ambil apa adanya. Jika isi '0', paksa kosong
     $catatan         = trim($_POST['catatan'] ?? '');
     if ($catatan === '0') {
         $catatan = '';

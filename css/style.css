@@ -577,7 +577,6 @@ body.dm-layout-body .dm-nav-item:hover:not(.dm-item-active) {
     font-size: 0.9em;
 }
 
-
 /* ini CSS khusus galeri */
 .dm-img-thumb {
     width: 70px;
@@ -1072,7 +1071,7 @@ section {
 }
 
 .visi-misi {
-    background: url('../Aset/background4.jpeg') no-repeat center;
+    background: url('../Aset/bgVisiMisi.jpeg') no-repeat center;
     background-size: cover;
     height: 400px;
     position: relative;

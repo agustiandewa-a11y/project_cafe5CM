@@ -5,7 +5,6 @@ include '../../koneksi.php';
 $id = intval($_GET['id'] ?? 0);
 if (!$id) { header("Location: index.php"); exit(); }
 
-// Ambil data galeri
 $stmt_get = $koneksi->prepare("SELECT * FROM galeri WHERE gambar_id = ?");
 $stmt_get->bind_param("i", $id);
 $stmt_get->execute();
@@ -14,11 +13,9 @@ $stmt_get->close();
 
 if (!$data) { header("Location: index.php"); exit(); }
 
-// PROSES UPDATE
 if (isset($_POST['submit'])) {
     $admin_id = intval($_SESSION['admin_id']);
 
-    // Cek apakah ada file baru yang diupload
     if (!empty($_FILES['gambar']['name'])) {
         $nama_baru = $_FILES['gambar']['name'];
         $tmp_name  = $_FILES['gambar']['tmp_name'];
@@ -28,12 +25,11 @@ if (isset($_POST['submit'])) {
         if (!in_array($ext, $allowed)) {
             $error = "Format file tidak didukung. Gunakan JPG, PNG, atau WEBP.";
         } elseif (move_uploaded_file($tmp_name, "../../Aset/" . $nama_baru)) {
-            // Hapus file lama
+
             $file_lama = "../../Aset/" . $data['nama_gambar'];
             if (file_exists($file_lama) && !empty($data['nama_gambar'])) {
                 unlink($file_lama);
             }
-            // Update DB dengan nama file baru + admin_id
             $stmt = $koneksi->prepare("UPDATE galeri SET nama_gambar=?, admin_id=? WHERE gambar_id=?");
             $stmt->bind_param("sii", $nama_baru, $admin_id, $id);
             if ($stmt->execute()) {

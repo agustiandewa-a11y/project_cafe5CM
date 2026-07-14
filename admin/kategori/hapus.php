@@ -18,14 +18,10 @@ if (isset($_GET['id'])) {
     $stmt_cek->close();
 
     if ($result_cek['total'] > 0) {
-        // Kategori masih digunakan — tolak penghapusan
         header("Location: index.php?pesan=gagal_hapus");
         exit();
     }
 
-    // ============================================================
-    // DELETE: Aman dihapus karena tidak ada relasi ke tabel menu
-    // ============================================================
     $stmt = $koneksi->prepare("DELETE FROM kategori WHERE kategori_id = ?");
     $stmt->bind_param("i", $kategori_id);
 
