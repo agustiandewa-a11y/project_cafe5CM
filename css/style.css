@@ -11,14 +11,13 @@ html {
 }
 
 section {
-    /* Kita set 100px karena di baris 21 tinggi navbar kamu adalah 100px */
     scroll-margin-top: 100px; 
 }
 
 @keyframes fadeInPage {
     from {
         opacity: 0;
-        transform: translateY(12px); /* Memberikan efek sedikit meluncur naik dari bawah */
+        transform: translateY(12px);
     }
     to {
         opacity: 1;
@@ -210,7 +209,18 @@ body.dm-layout-body {
     background-color: #f4f6f9;
     display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    animation: blurFadePage 0.4s ease-in-out;
+    animation: slideDownPage 0.4s ease-out;
+}
+
+@keyframes slideDownPage {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 body.dm-layout-body .dm-main-container {
@@ -1056,7 +1066,7 @@ section {
     letter-spacing: 1px;
 }
 
-/* INI VISI MISI */
+/* Ini visi misi ye */
 .visi-misi {
     min-height: 100vh;
 }
@@ -1185,11 +1195,11 @@ section {
     line-height: 1.5;
 }
 
-/* RESERVASI */
+/* Reservasi */
 .reservasi-container {
-    max-width: 1100px; /* Diperlebar menjadi 1100px agar memenuhi lebar halaman */
+    max-width: 1100px;
     width: 100%; 
-    margin: 0 auto 40px auto; /* Membuat posisi otomatis center di tengah halaman */
+    margin: 0 auto 40px auto;
     background: #ffffff;
     padding: 40px;
     border-radius: 16px;
