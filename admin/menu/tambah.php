@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
         $stmt = $koneksi->prepare("INSERT INTO menu (nama_menu, harga, kategori_id, gambar, admin_id) VALUES (?, ?, ?, ?, ?)");
         
         
-        $stmt->bind_param("iisis", $nama_menu, $harga, $kategori_id, $gambar, $admin_id);
+        $stmt->bind_param("siisi", $nama_menu, $harga, $kategori_id, $gambar, $admin_id);;
 
         if ($stmt->execute()) {
             header("Location: index.php?pesan=tambah_sukses");
