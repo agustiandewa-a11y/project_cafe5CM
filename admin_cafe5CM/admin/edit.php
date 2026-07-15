@@ -2,13 +2,11 @@
 session_start();
 include '../../koneksi.php';
 
-// Memastikan admin sudah login
 if (!isset($_SESSION['admin_id'])) {
     header("Location: ../../login.php");
     exit();
 }
 
-// Memastikan parameter ID ada di URL
 if (!isset($_GET['id'])) {
     header("Location: index.php");
     exit();
@@ -16,7 +14,6 @@ if (!isset($_GET['id'])) {
 
 $admin_id = intval($_GET['id']);
 
-// Mengambil data admin berdasarkan ID
 $stmt_get = $koneksi->prepare("SELECT * FROM admin WHERE admin_id = ?");
 $stmt_get->bind_param("i", $admin_id);
 $stmt_get->execute();
@@ -24,7 +21,6 @@ $result_get = $stmt_get->get_result();
 $akun = $result_get->fetch_assoc();
 $stmt_get->close();
 
-// Jika data admin tidak ditemukan
 if (!$akun) {
     echo "Data akun tidak ditemukan.";
     exit();
